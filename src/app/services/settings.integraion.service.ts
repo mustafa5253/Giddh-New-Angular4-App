@@ -1,4 +1,4 @@
-import { PayTmRequest, EcommerceResponse, ShopclueRequest } from './../models/api-models/SettingsIntegraion';
+import { PayTmRequest, EcommerceResponse } from './../models/api-models/SettingsIntegraion';
 import { BaseResponse } from 'app/models/api-models/BaseResponse';
 import { catchError, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -295,12 +295,12 @@ export class SettingsIntegrationService {
 
   public EcommerceAddPayTmANDShopclues(model: PayTmRequest): Observable<BaseResponse<any, PayTmRequest>> {
     this.companyUniqueName = this._generalService.companyUniqueName;
-  
+
     return this._http.post(this.config.apiUrl + SETTINGS_INTEGRATION_API.ECOMMERCE.replace(':companyUniqueName', encodeURIComponent(this.companyUniqueName)), model).pipe(map((res) => {
-      let data :BaseResponse<EcommerceResponse, PayTmRequest>= res ;
+      let data: BaseResponse<EcommerceResponse, PayTmRequest> = res ;
       data.request = model;
       return data;
     }), catchError((e) => this.errorHandler.HandleCatch<string, PayTmRequest>(e, model)));
   }
-  
+
 }
