@@ -24,9 +24,9 @@ export class SettingsIntegrationActions {
         type: SETTINGS_INTEGRATION_ACTIONS.GET_SMS_KEY_RESPONSE,
         payload: res
       }, false, {
-        type: SETTINGS_INTEGRATION_ACTIONS.GET_SMS_KEY_RESPONSE,
-        payload: res
-      })));
+          type: SETTINGS_INTEGRATION_ACTIONS.GET_SMS_KEY_RESPONSE,
+          payload: res
+        })));
 
   @Effect()
   public GetEmailKey$: Observable<Action> = this.action$
@@ -36,9 +36,9 @@ export class SettingsIntegrationActions {
         type: SETTINGS_INTEGRATION_ACTIONS.GET_EMAIL_KEY_RESPONSE,
         payload: res
       }, false, {
-        type: SETTINGS_INTEGRATION_ACTIONS.GET_EMAIL_KEY_RESPONSE,
-        payload: res
-      })));
+          type: SETTINGS_INTEGRATION_ACTIONS.GET_EMAIL_KEY_RESPONSE,
+          payload: res
+        })));
 
   @Effect()
   public SaveSMSKey$: Observable<Action> = this.action$
@@ -48,9 +48,9 @@ export class SettingsIntegrationActions {
         type: SETTINGS_INTEGRATION_ACTIONS.CREATE_SMS_KEY_RESPONSE,
         payload: res
       }, true, {
-        type: SETTINGS_INTEGRATION_ACTIONS.CREATE_SMS_KEY_RESPONSE,
-        payload: res
-      })));
+          type: SETTINGS_INTEGRATION_ACTIONS.CREATE_SMS_KEY_RESPONSE,
+          payload: res
+        })));
 
   @Effect()
   public SaveEmailKey$: Observable<Action> = this.action$
@@ -60,9 +60,9 @@ export class SettingsIntegrationActions {
         type: SETTINGS_INTEGRATION_ACTIONS.CREATE_EMAIL_KEY_RESPONSE,
         payload: res
       }, true, {
-        type: SETTINGS_INTEGRATION_ACTIONS.CREATE_EMAIL_KEY_RESPONSE,
-        payload: res
-      })));
+          type: SETTINGS_INTEGRATION_ACTIONS.CREATE_EMAIL_KEY_RESPONSE,
+          payload: res
+        })));
 
   @Effect()
   public GetRazorPayDetails$: Observable<Action> = this.action$
@@ -72,9 +72,9 @@ export class SettingsIntegrationActions {
         type: SETTINGS_INTEGRATION_ACTIONS.GET_RAZOR_PAY_DETAILS_RESPONSE,
         payload: res
       }, false, {
-        type: SETTINGS_INTEGRATION_ACTIONS.GET_RAZOR_PAY_DETAILS_RESPONSE,
-        payload: res
-      })));
+          type: SETTINGS_INTEGRATION_ACTIONS.GET_RAZOR_PAY_DETAILS_RESPONSE,
+          payload: res
+        })));
 
   @Effect()
   public SaveRazorPayDetails$: Observable<Action> = this.action$
@@ -84,9 +84,9 @@ export class SettingsIntegrationActions {
         type: SETTINGS_INTEGRATION_ACTIONS.SAVE_RAZOR_PAY_DETAILS_RESPONSE,
         payload: res
       }, true, {
-        type: SETTINGS_INTEGRATION_ACTIONS.SAVE_RAZOR_PAY_DETAILS_RESPONSE,
-        payload: res
-      })));
+          type: SETTINGS_INTEGRATION_ACTIONS.SAVE_RAZOR_PAY_DETAILS_RESPONSE,
+          payload: res
+        })));
 
   @Effect()
   public DeleteRazorPayDetails$: Observable<Action> = this.action$
@@ -96,9 +96,9 @@ export class SettingsIntegrationActions {
         type: SETTINGS_INTEGRATION_ACTIONS.DELETE_RAZOR_PAY_DETAILS_RESPONSE,
         payload: res
       }, true, {
-        type: SETTINGS_INTEGRATION_ACTIONS.DELETE_RAZOR_PAY_DETAILS_RESPONSE,
-        payload: res
-      })));
+          type: SETTINGS_INTEGRATION_ACTIONS.DELETE_RAZOR_PAY_DETAILS_RESPONSE,
+          payload: res
+        })));
 
   @Effect()
   public UpdateRazorPayDetails$: Observable<Action> = this.action$
@@ -108,9 +108,9 @@ export class SettingsIntegrationActions {
         type: SETTINGS_INTEGRATION_ACTIONS.UPDATE_RAZOR_PAY_DETAILS_RESPONSE,
         payload: res
       }, true, {
-        type: SETTINGS_INTEGRATION_ACTIONS.UPDATE_RAZOR_PAY_DETAILS_RESPONSE,
-        payload: res
-      })));
+          type: SETTINGS_INTEGRATION_ACTIONS.UPDATE_RAZOR_PAY_DETAILS_RESPONSE,
+          payload: res
+        })));
 
   @Effect()
   public SaveCashfreeDetails$: Observable<Action> = this.action$
@@ -129,7 +129,7 @@ export class SettingsIntegrationActions {
         } else {
           this.toasty.successToast(data.body, '');
         }
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -148,7 +148,7 @@ export class SettingsIntegrationActions {
         } else {
           this.toasty.successToast(data.body, '');
         }
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -168,7 +168,7 @@ export class SettingsIntegrationActions {
         } else {
           this.toasty.successToast(data.body, '');
         }
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -188,7 +188,7 @@ export class SettingsIntegrationActions {
         } else {
           this.toasty.successToast(data.message, '');
         }
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -202,7 +202,7 @@ export class SettingsIntegrationActions {
     .ofType(SETTINGS_INTEGRATION_ACTIONS.GET_CASHFREE_DETAILS_RESPONSE).pipe(
       map((response: CustomActions) => {
         let data: BaseResponse<any, any> = response.payload;
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -216,7 +216,7 @@ export class SettingsIntegrationActions {
     .ofType(SETTINGS_INTEGRATION_ACTIONS.GET_AUTOCOLLECT_USER_RESPONSE).pipe(
       map((response: CustomActions) => {
         let data: BaseResponse<any, any> = response.payload;
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -237,7 +237,7 @@ export class SettingsIntegrationActions {
           // console.log(data);
           this.toasty.successToast(data.body, '');
         }
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -251,7 +251,7 @@ export class SettingsIntegrationActions {
     .ofType(SETTINGS_INTEGRATION_ACTIONS.GET_PAYMENT_GATEWAY_RESPONSE).pipe(
       map((response: CustomActions) => {
         let data: BaseResponse<any, any> = response.payload;
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -270,7 +270,7 @@ export class SettingsIntegrationActions {
         } else {
           this.toasty.successToast(data.body, '');
         }
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -290,7 +290,7 @@ export class SettingsIntegrationActions {
           // console.log(data);
           this.toasty.successToast(data.body, '');
         }
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -310,7 +310,7 @@ export class SettingsIntegrationActions {
           // console.log(data);
           this.toasty.successToast(data.body, '');
         }
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -330,7 +330,7 @@ export class SettingsIntegrationActions {
           // console.log(data);
           // this.toasty.successToast(data.body, '');
         }
-        return {type: 'EmptyAction'};
+        return { type: 'EmptyAction' };
       }));
 
   @Effect()
@@ -349,7 +349,7 @@ export class SettingsIntegrationActions {
       } else {
         this.toasty.successToast(data.body, '');
       }
-      return {type: 'EmptyAction'};
+      return { type: 'EmptyAction' };
     }));
 
   @Effect()
@@ -368,7 +368,7 @@ export class SettingsIntegrationActions {
       } else {
         this.toasty.successToast('Seller Updated Successfully', '');
       }
-      return {type: 'EmptyAction'};
+      return { type: 'EmptyAction' };
     }));
 
   @Effect()
@@ -388,7 +388,7 @@ export class SettingsIntegrationActions {
         // console.log(data);
         this.toasty.successToast(data.body, '');
       }
-      return {type: 'EmptyAction'};
+      return { type: 'EmptyAction' };
     }));
 
   @Effect()
@@ -402,7 +402,7 @@ export class SettingsIntegrationActions {
     .ofType(SETTINGS_INTEGRATION_ACTIONS.GET_AMAZON_SELLER_RESPONSE)
     .pipe(map((response: CustomActions) => {
       let data: BaseResponse<any, any> = response.payload;
-      return {type: 'EmptyAction'};
+      return { type: 'EmptyAction' };
     }));
 
   @Effect()
@@ -411,32 +411,54 @@ export class SettingsIntegrationActions {
       switchMap((action: CustomActions) => this.settingsIntegrationService.GetGmailIntegrationStatus()),
       map(response => this.GetGmailIntegrationStatusResponse(response)));
 
-//Ecommerce Paytm effect
-@Effect()
-  public EcommercePayTmDetails$: Observable<Action> = this.action$
+  //Ecommerce Paytm add
+  @Effect()
+  public AddEcommercePayTmDetails$: Observable<Action> = this.action$
     .ofType(SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_ADD_PAYTM).pipe(
-      switchMap((action: CustomActions) => this.settingsIntegrationService.EcommerceAddPayTmANDShopclues(action.payload)),
-      map((response:EcommerceResponse) => this.EcommercePayTmResponse(response)));
+      switchMap((action: CustomActions) => this.settingsIntegrationService.addEcommerceCredentials(action.payload)),
+      map((response: any) => this.AddEcommercePayTmResponse(response)));
 
-      //Ecommerce Paytm effect
-      @Effect()
-  public EcommercePayTmResponse$: Observable<Action> = this.action$
+  //Ecommerce Paytm response
+  @Effect()
+  public AddEcommercePayTmResponse$: Observable<Action> = this.action$
     .ofType(SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_PAYTM_RESPONSE)
     .pipe(map((response: CustomActions) => {
       let data: BaseResponse<any, any> = response.payload;
       if (data.status === 'error') {
         this.toasty.errorToast(data.message, data.code);
       } else {
-        this.toasty.successToast('Ecommerce Successfully', '');
+        this.toasty.successToast('Ecommerce PayTm credential added Successfully', '');
       }
-      return {type: 'EmptyAction'};
+      return { type: 'EmptyAction' };
     }));
+     //Ecommerce Shopclues add
+  @Effect()
+  public AddEcommerceShopcluesDetails$: Observable<Action> = this.action$
+    .ofType(SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_ADD_SHOPCLUES)
+    .pipe(switchMap((action: CustomActions) => this.settingsIntegrationService.addEcommerceCredentials(action.payload)),
+    map((response: any) => this.AddEcommerceShopcluesResponse(response)));
+ 
+    //Ecommerce Shopclues add
+ @Effect()
+ public AddEcommerceShopcluesResponse$: Observable<Action> = this.action$
+   .ofType(SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_SHOPCLUES_RESPONSE)
+   .pipe(map((response: CustomActions) => {
+    let data: BaseResponse<any, any> = response.payload;
+    if (data.status === 'error') {
+      this.toasty.errorToast(data.message, data.code);
+    } else if(data.status === 'success'){
+      this.toasty.successToast('Ecommerce Shopclues credential added Successfully', '');
+    }
+    return { type: 'EmptyAction' };
+  }));
 
+    
+    
   constructor(private action$: Actions,
-              private toasty: ToasterService,
-              private router: Router,
-              private store: Store<AppState>,
-              private settingsIntegrationService: SettingsIntegrationService) {
+    private toasty: ToasterService,
+    private router: Router,
+    private store: Store<AppState>,
+    private settingsIntegrationService: SettingsIntegrationService) {
   }
 
   public GetSMSKey(): CustomActions {
@@ -721,7 +743,7 @@ export class SettingsIntegrationActions {
     };
   }
 
-  public validateResponse<TResponse, TRequest>(response: BaseResponse<TResponse, TRequest>, successAction: CustomActions, showToast: boolean = false, errorAction: CustomActions = {type: 'EmptyAction'}): CustomActions {
+  public validateResponse<TResponse, TRequest>(response: BaseResponse<TResponse, TRequest>, successAction: CustomActions, showToast: boolean = false, errorAction: CustomActions = { type: 'EmptyAction' }): CustomActions {
     if (response.status === 'error') {
       if (showToast) {
         this.toasty.errorToast(response.message);
@@ -735,38 +757,39 @@ export class SettingsIntegrationActions {
     return successAction;
   }
 
-//  Ecommerce request PayTM  actions
-public EcommercePayTmDetails(value: PayTmRequest): CustomActions {
-  return {
-    type: SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_ADD_PAYTM,
-    payload: value
-  };
-}
-//  Ecommerce Response PayTM  actions
+  //  Ecommerce request PayTM  actions
+  public AddEcommercePayTmDetails(value: PayTmRequest): CustomActions {
+    return {
+      type: SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_ADD_PAYTM,
+      payload: value
+    };
+  }
+  //  Ecommerce Response PayTM  actions
 
-public EcommercePayTmResponse(value: EcommerceResponse): CustomActions {
-  return {
-    type: SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_PAYTM_RESPONSE,
-    payload: value
-  };
-}
+  public AddEcommercePayTmResponse(value: EcommerceResponse): CustomActions {
+    
+    return {
+      type: SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_PAYTM_RESPONSE,
+      payload: value
+    };
+  }
 
-//  Ecommerce request Shopclues  actions
+  //  Ecommerce request Shopclues  actions
 
-public EcommerceShopcluesDetails(value: PayTmRequest): CustomActions {
-  return {
-    type: SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_ADD_SHOPCLUES,
-    payload: value
-  };
-}
+  public AddEcommerceShopcluesDetails(value: PayTmRequest): CustomActions {
+    return {
+      type: SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_ADD_SHOPCLUES,
+      payload: value
+    };
+  }
 
-//  Ecommerce Response Shopclues  actions
+  //  Ecommerce Response Shopclues  actions
 
-public EcommerceShopcluesResponse(value: EcommerceResponse): CustomActions {
-  return {
-    type: SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_SHOPCLUES_RESPONSE,
-    payload: value
-  };
-}
+  public AddEcommerceShopcluesResponse(value: EcommerceResponse): CustomActions {
+    return {
+      type: SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_SHOPCLUES_RESPONSE,
+      payload: value
+    };
+  }
 
 }

@@ -93,23 +93,13 @@ export interface PayTmSettings {
 // for **PayTm** Response model
 export interface EcommerceResponse {
   channel: string;
+  applicationSecret?: string;
+  wareHouseId?: string;
   channelName: string;
   channelId: number;
   merchantId: string;
-  wareHouseId: string;
+  applicationId?: string;
+  uniqueName: string;
+  password: string;
+  userName: string;
 }
-
-// for **SHOPCLUES** POST request model  SHOPCLUES
-// export interface ShopclueRequest {
-//   channelType: string;
-//   channelName: string;
-//   settings:    ShopclueSettings;
-// }
-
-// export interface ShopclueSettings {
-//   applicationId:     string;
-//   applicationSecret: string;
-//   merchantId:        string;
-//   userName:          string;
-//   password:          string;
-// }

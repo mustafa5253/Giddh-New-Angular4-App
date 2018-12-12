@@ -293,13 +293,15 @@ export class SettingsIntegrationService {
 
 //   Add  Ecommerce Paytm and Shopclues api
 
-  public EcommerceAddPayTmANDShopclues(model: PayTmRequest): Observable<BaseResponse<any, PayTmRequest>> {
+  public addEcommerceCredentials(model: PayTmRequest): Observable<BaseResponse<any, PayTmRequest>> {
     this.companyUniqueName = this._generalService.companyUniqueName;
 
     return this._http.post(this.config.apiUrl + SETTINGS_INTEGRATION_API.ECOMMERCE.replace(':companyUniqueName', encodeURIComponent(this.companyUniqueName)), model).pipe(map((res) => {
       let data: BaseResponse<EcommerceResponse, PayTmRequest> = res ;
       data.request = model;
+      console.log('inside service res'+res.json());
       return data;
+     
     }), catchError((e) => this.errorHandler.HandleCatch<string, PayTmRequest>(e, model)));
   }
 
