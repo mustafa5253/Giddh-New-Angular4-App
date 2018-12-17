@@ -411,14 +411,14 @@ export class SettingsIntegrationActions {
       switchMap((action: CustomActions) => this.settingsIntegrationService.GetGmailIntegrationStatus()),
       map(response => this.GetGmailIntegrationStatusResponse(response)));
 
-  //Ecommerce Paytm add
+  // Ecommerce Paytm add
   @Effect()
   public AddEcommercePayTmDetails$: Observable<Action> = this.action$
     .ofType(SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_ADD_PAYTM).pipe(
       switchMap((action: CustomActions) => this.settingsIntegrationService.addEcommerceCredentials(action.payload)),
       map((response: any) => this.AddEcommercePayTmResponse(response)));
 
-  //Ecommerce Paytm response
+  // Ecommerce Paytm response
   @Effect()
   public AddEcommercePayTmResponse$: Observable<Action> = this.action$
     .ofType(SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_PAYTM_RESPONSE)
@@ -427,18 +427,18 @@ export class SettingsIntegrationActions {
       if (data.status === 'error') {
         this.toasty.errorToast(data.message, data.code);
       } else {
-        this.toasty.successToast('Ecommerce PayTm credential added Successfully', '');
+        this.toasty.successToast('PayTm added successfully', '');
       }
       return { type: 'EmptyAction' };
     }));
-     //Ecommerce Shopclues add
+     // Ecommerce Shopclues add
   @Effect()
   public AddEcommerceShopcluesDetails$: Observable<Action> = this.action$
     .ofType(SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_ADD_SHOPCLUES)
     .pipe(switchMap((action: CustomActions) => this.settingsIntegrationService.addEcommerceCredentials(action.payload)),
     map((response: any) => this.AddEcommerceShopcluesResponse(response)));
- 
-    //Ecommerce Shopclues add
+
+    // Ecommerce Shopclues add
  @Effect()
  public AddEcommerceShopcluesResponse$: Observable<Action> = this.action$
    .ofType(SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_SHOPCLUES_RESPONSE)
@@ -446,14 +446,12 @@ export class SettingsIntegrationActions {
     let data: BaseResponse<any, any> = response.payload;
     if (data.status === 'error') {
       this.toasty.errorToast(data.message, data.code);
-    } else if(data.status === 'success'){
-      this.toasty.successToast('Ecommerce Shopclues credential added Successfully', '');
+    } else if (data.status === 'success') {
+      this.toasty.successToast('Shopclues added successfully', '');
     }
     return { type: 'EmptyAction' };
   }));
 
-    
-    
   constructor(private action$: Actions,
     private toasty: ToasterService,
     private router: Router,
@@ -767,7 +765,7 @@ export class SettingsIntegrationActions {
   //  Ecommerce Response PayTM  actions
 
   public AddEcommercePayTmResponse(value: EcommerceResponse): CustomActions {
-    
+
     return {
       type: SETTINGS_INTEGRATION_ACTIONS.ECOMMERCE_PAYTM_RESPONSE,
       payload: value

@@ -58,7 +58,6 @@ export class SettingIntegrationComponent implements OnInit {
   public ecommerePayTmForm: FormGroup;
   public ecommereShopcluesForm: FormGroup;
 
-
   public amazonEditItemIdx: number;
   public amazonSellerRes: AmazonSellerClass[];
   public isGmailIntegrated$: Observable<boolean>;
@@ -160,22 +159,21 @@ export class SettingIntegrationComponent implements OnInit {
     });
 
     this.ecommerePayTmForm = this._fb.group({
-      channelType: ['',Validators.required],
-      channelName: ['',Validators.required],
+      channelType: ['', Validators.required],
+      channelName: ['', Validators.required],
       settings: this._fb.group({
         wareHouseId: ['', Validators.required ],
-        merchantId: ['',Validators.required],
-        userName:['',Validators.required],
-        password:['',Validators.required]
+        merchantId: ['', Validators.required],
+        userName: ['', Validators.required],
+        password: ['', Validators.required]
      })
     });
 
-    this.ecommereShopcluesForm=this._fb.group({
-      channelType: ['',Validators.required],
-      channelName: ['',Validators.required],
+    this.ecommereShopcluesForm = this._fb.group({
+      channelType: ['', Validators.required],
+      channelName: ['', Validators.required],
       settings: this.initEcommerceShopcluesSettings()
      });
-
 
     this.isSellerAdded.subscribe(a => {
       if (a) {
@@ -224,11 +222,6 @@ export class SettingIntegrationComponent implements OnInit {
 
   public toggleCheckBox() {
     return this.razorPayObj.autoCapturePayment = !this.razorPayObj.autoCapturePayment;
-  }
-
-  public test(e: any, model: any) {
-    console.log(e)
-    console.log (model)
   }
 
   public selectAccount(event: IOption) {
@@ -373,47 +366,44 @@ export class SettingIntegrationComponent implements OnInit {
   // initial initAmazonReseller controls
   public initAmazonReseller() {
     return this._fb.group({
-      sellerId: ['',Validators.required],
-      mwsAuthToken: ['',Validators.required],
-      accessKey: ['',Validators.required],
-      secretKey: ['',Validators.required]
+      sellerId: ['', Validators.required],
+      mwsAuthToken: ['', Validators.required],
+      accessKey: ['', Validators.required],
+      secretKey: ['', Validators.required]
     });
   }
-
 
    /**
    * save Ecommerce PayTm
    */
   public saveEcommercePayTmDetails() {
-    
-    var payTmrequst=_.cloneDeep(this.ecommerePayTmForm.value);
-    payTmrequst.channelName=" Paytm accounts";
-    payTmrequst.channelType="paytm"
+
+    let payTmrequst = _.cloneDeep(this.ecommerePayTmForm.value);
+    payTmrequst.channelName = 'Paytm accounts1';
+    payTmrequst.channelType = 'paytm';
     this.store.dispatch(this.settingsIntegrationActions.AddEcommercePayTmDetails(payTmrequst));
   }
- 
+
    /**
    * save Ecommerce PayTm
    */
   public saveEcommerceShopcluesDetails() {
-    var shopCluesrequst=_.cloneDeep(this.ecommereShopcluesForm.value);
-    shopCluesrequst.channelName="SHOPCLUES";
-    shopCluesrequst.channelType="SHOPCLUES accountss s"
+    let shopCluesrequst = _.cloneDeep(this.ecommereShopcluesForm.value);
+    shopCluesrequst.channelName = 'SHOPCLUES';
+    shopCluesrequst.channelType = 'SHOPCLUES accountss s';
     this.store.dispatch(this.settingsIntegrationActions.AddEcommerceShopcluesDetails(shopCluesrequst));
   }
-
 
  // initial Ecommerce ShopClues Settings controls
  public initEcommerceShopcluesSettings() {
   return this._fb.group({
-    applicationId: ['',Validators.required],
-    applicationSecret:['',Validators.required],
-    merchantId: ['',Validators.required],
-    userName:['',Validators.required],
-    password:['',Validators.required]
- })
+    applicationId: ['', Validators.required],
+    applicationSecret: ['', Validators.required],
+    merchantId: ['', Validators.required],
+    userName: ['', Validators.required],
+    password: ['', Validators.required]
+ });
 }
-
 
   public addAmazonSellerRow(i?: number, item?: any) {
     const AmazonSellerControl = this.amazonSellerForm.controls['sellers'] as FormArray;
