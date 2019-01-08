@@ -1,3 +1,4 @@
+import { CurrencyModule } from './../shared/helpers/pipes/currencyPipe/currencyType.module';
 import { ShSelectModule } from '../theme/ng-virtual-select/sh-select.module';
 import { SettingPermissionComponent } from './permissions/setting.permission.component';
 import { CommonModule } from '@angular/common';
@@ -80,8 +81,11 @@ import { ConfirmModalModule } from '../theme/confirm-modal/confirm-modal.module'
     ElementViewChildModule,
     PerfectScrollbarModule,
     ContactModule,
-    ConfirmModalModule
-  ]
+    ConfirmModalModule,
+    CurrencyModule
+  ],
+  exports : [CurrencyModule]
+
 })
 
 export class SettingsModule {

@@ -48,10 +48,15 @@ export class SettingPermissionComponent implements OnInit, OnDestroy {
     private _toasty: ToasterService,
     private _generalService: GeneralService
   ) {
-    this.loggedInUserEmail = this._generalService.user.email;
+    //
   }
 
   public ngOnInit() {
+
+    if (this._generalService && this._generalService.user && this._generalService.user.email) {
+      this.loggedInUserEmail = this._generalService.user.email;
+    }
+
     this.store.select(s => s.settings.usersWithCompanyPermissions).pipe(takeUntil(this.destroyed$)).subscribe(s => {
       if (s) {
         let data = _.cloneDeep(s);

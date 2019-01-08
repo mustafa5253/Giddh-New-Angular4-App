@@ -1,3 +1,4 @@
+import { CurrencyModule } from './../shared/helpers/pipes/currencyPipe/currencyType.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -61,7 +62,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ModalModule,
     ChartModule,
     LaddaModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    CurrencyModule
   ],
 })
 export class HomeModule {
