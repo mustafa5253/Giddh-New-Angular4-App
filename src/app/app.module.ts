@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
-import { NoPreloading, RouterModule, PreloadAllModules } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import * as _ from './lodash-optimized';
@@ -58,6 +58,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserDetectComponent } from './browser-support/browserDetect.component';
 import { CustomPreloadingStrategy } from './services/lazy-preloading.service';
+import { TypeaheadConfig } from 'ngx-bootstrap/typeahead';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -81,8 +82,12 @@ let CONDITIONAL_IMPORTS = [];
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   // return localStorageSync({ keys: ['session', 'permission'], rehydrate: true, storage: IS_ELECTRON_WA ? sessionStorage : localStorage })(reducer);
-  return localStorageSync({ keys: ['session', 'permission'], rehydrate: true, storage: localStorage })(reducer);
+  return localStorageSync({keys: ['session', 'permission'], rehydrate: true, storage: localStorage})(reducer);
   // return localStorageSync({ keys: ['session', 'permission'], rehydrate: true, storage: sessionStorage })(reducer);
+}
+
+function getTypeaheadConfig(): TypeaheadConfig {
+  return Object.assign(new TypeaheadConfig(), {hideResultsOnBlur: false});
 }
 
 let metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
@@ -116,6 +121,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SocialLoginCallbackComponent
     // SignupComponent
   ],
+
   /**
    * Import Angular's modules.
    */
@@ -147,8 +153,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DecoratorsModule.forRoot(),
     ShSelectModule.forRoot(),
     UniversalListModule.forRoot(),
-    ToastrModule.forRoot({ preventDuplicates: true, maxOpened: 3 }),
-    StoreModule.forRoot(reducers, { metaReducers }),
+    ToastrModule.forRoot({preventDuplicates: true, maxOpened: 3}),
+    StoreModule.forRoot(reducers, {metaReducers}),
     PerfectScrollbarModule,
     RouterModule.forRoot(ROUTES, {useHash: IS_ELECTRON_WA, preloadingStrategy: CustomPreloadingStrategy, onSameUrlNavigation: 'reload'}),
     // RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
@@ -178,12 +184,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     },
     {
       provide: ServiceConfig,
-      useValue: { apiUrl: Configuration.ApiUrl, appUrl: Configuration.AppUrl, _ }
+      useValue: {apiUrl: Configuration.ApiUrl, appUrl: Configuration.AppUrl, _}
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: GiddhHttpInterceptor,
       multi: true
+    },
+    {
+      provide: TypeaheadConfig,
+      useFactory: getTypeaheadConfig
     },
     CustomPreloadingStrategy
   ]

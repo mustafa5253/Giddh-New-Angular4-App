@@ -9,11 +9,10 @@ import { SearchGridComponent } from './components/search-grid/search-grid.compon
 import { SearchFilterComponent } from './components/search-filter/search-filter.component';
 import { DatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { LaddaModule } from 'angular2-ladda';
 import { DecimalDigitsModule } from '../shared/helpers/directives/decimalDigits/decimalDigits.module';
 import { Daterangepicker } from '../theme/ng2-daterangepicker/daterangepicker.module';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TypeaheadModule } from 'ngx-bootstrap';
 import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({

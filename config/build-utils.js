@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const helpers = require('./helpers');
 const environments = require('./environment');
+const PLATFORM = require('@ngtools/webpack').PLATFORM;
 const DEFAULT_METADATA = {
   title: 'Giddh Application',
   baseUrl: '/',
@@ -80,7 +81,8 @@ function ngcWebpackSetup(prod, metadata) {
   const sourceMap = false; // TODO: apply based on tsconfig value?
   const ngcWebpackPluginOptions = {
     skipCodeGeneration: !metadata.AOT,
-    sourceMap
+    sourceMap,
+    platform: PLATFORM.Browser
   };
 
   const environment = getEnvFile(metadata.envFileSuffix);
@@ -107,7 +109,7 @@ function ngcWebpackSetup(prod, metadata) {
   const loaders = [
     {
       test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
-      use: buildOptimizer ? [ buildOptimizerLoader, '@ngtools/webpack' ] : [ '@ngtools/webpack' ]
+      use: buildOptimizer ? [buildOptimizerLoader, '@ngtools/webpack'] : ['@ngtools/webpack']
     },
     {
       // Mark files inside `@angular/core` as using SystemJS style dynamic imports.

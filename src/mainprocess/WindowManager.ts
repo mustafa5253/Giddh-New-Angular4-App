@@ -24,6 +24,7 @@ export default class WindowManager {
       descriptor.y = bounds.y;
     }
   }
+
   private appUpdater: AppUpdaterV1 = null;
   private stateManager = new StateManager();
   private windows: BrowserWindow[] = [];
@@ -44,7 +45,9 @@ export default class WindowManager {
         }
       } else {
         if (this.appUpdater && this.appUpdater.isUpdateDownloaded) {
-          setTimeout(autoUpdater.quitAndInstall(), 60000);
+          setTimeout(() => {
+            autoUpdater.quitAndInstall();
+          }, 60000);
         } else {
           app.quit();
         }

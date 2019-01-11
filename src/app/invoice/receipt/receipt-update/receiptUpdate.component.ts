@@ -1,3 +1,4 @@
+
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { AppState } from '../../../store';
 import { select, Store } from '@ngrx/store';
@@ -11,9 +12,6 @@ import * as _ from '../../../lodash-optimized';
 import { ToasterService } from '../../../services/toaster.service';
 import * as moment from 'moment';
 import { GstEntry, ICommonItemOfTransaction, IContent, IInvoiceTax, IInvoiceTransaction } from '../../../models/api-models/Invoice';
-import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
-import { e } from '@angular/core/src/render3';
-import { ReceiptService } from '../../../services/receipt.service';
 import { InvoiceReceiptActions } from '../../../actions/invoice/receipt/receipt.actions';
 
 const THEAD = [
