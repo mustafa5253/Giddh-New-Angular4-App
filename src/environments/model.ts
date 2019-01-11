@@ -1,6 +1,7 @@
 import { NgModuleRef } from '@angular/core';
 
 export interface Environment {
+  hmr: boolean;
   production: boolean;
   ENV_PROVIDERS: any;
   showDevModule: boolean;
@@ -9,5 +10,6 @@ export interface Environment {
   isElectron: boolean;
   OtpToken: string;
   APP_FOLDER: string;
+
   decorateModuleRef(modRef: NgModuleRef<any>): NgModuleRef<any>;
 }

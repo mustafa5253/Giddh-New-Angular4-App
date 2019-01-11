@@ -6,6 +6,7 @@ import { Environment } from './model';
 enableProdMode();
 
 export const environment: Environment = {
+  hmr: false,
   production: true,
   showDevModule: true,
   AppUrl: '',

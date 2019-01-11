@@ -8,6 +8,7 @@ Error.stackTraceLimit = Infinity;
 require('zone.js/dist/long-stack-trace-zone');
 
 export const environment: Environment = {
+  hmr: true,
   production: false,
   AppUrl: 'http://localapp.giddh.com:3000/',
   ApiUrl: 'http://api.giddh.com/',

@@ -3,6 +3,7 @@ import { NgModuleRef } from '@angular/core';
 import { Environment } from './model';
 
 export const environment: Environment = {
+  hmr: true,
   production: true,
   showDevModule: false,
   AppUrl: 'http://test.giddh.com/',
