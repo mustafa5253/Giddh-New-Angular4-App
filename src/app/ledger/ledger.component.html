@@ -590,7 +590,7 @@
                                                     <span class="ledger-checkbox" style="float: left">
                       <!--<input type="checkbox"/>-->
                     </span>
-                                                    <input class="form-control dateStep" type="date" [(ngModel)]="lc.blankLedger.entryDate" [textMask]="{mask: lc.dateMask, guide: true}" [placeholder]="lc.formatPlaceholder">
+                                                    <input class="form-control dateStep" type="date" [(ngModel)]="lc.blankLedger.entryDate " [textMask]="{mask: lc.dateMask, guide: true}" [placeholder]="lc.formatPlaceholder">
                                                 </div>
 
                                             </td>
@@ -627,7 +627,7 @@
                                                 <input class="form-control alR" type="text" decimalDigitsDirective [DecimalPlaces]="2" [(ngModel)]="txn.amount" (input)="needToReCalculate.next(true)" (click)="showNewLedgerEntryPopup(txn);blankLedgerAmountClick()">
                                             </td>
 
-                                        </tr>
+                                        </tr >
 
                                     </tbody>
                                 </table>
