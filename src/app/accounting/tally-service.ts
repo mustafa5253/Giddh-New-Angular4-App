@@ -1,4 +1,3 @@
-import { distinctUntilChanged } from 'rxjs/operators';
 import { ToasterService } from './../services/toaster.service';
 import { BlankLedgerVM } from './../ledger/ledger.vm';
 import { BehaviorSubject } from 'rxjs';
@@ -95,10 +94,9 @@ export class TallyModuleService {
         salesAccounts.push(acc);
       }
       let currentAssetsAcc = acc.parentGroups.findIndex((pg) => pg.uniqueName === 'currentassets');
-        currentAssetsAcc = _.remove(currentAssetsAcc, function(n) {
-          return n.parentGroups.findIndex((pg) => pg.uniqueName === 'bankaccounts' || pg.uniqueName === 'cash');
-        });
-        debugger;
+      currentAssetsAcc = _.remove(currentAssetsAcc, function (n) {
+        return n.parentGroups.findIndex((pg) => pg.uniqueName === 'bankaccounts' || pg.uniqueName === 'cash');
+      });
       if (currentAssetsAcc) {
         currentAssetsAccs.push(acc);
       }
