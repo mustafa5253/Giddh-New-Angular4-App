@@ -1,48 +1,68 @@
-import { combineLatest as observableCombineLatest, Observable, of as observableOf, ReplaySubject } from 'rxjs';
+import {combineLatest as observableCombineLatest, Observable, of as observableOf, ReplaySubject} from 'rxjs';
 
-import { distinctUntilChanged, take, takeUntil } from 'rxjs/operators';
-import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import {distinctUntilChanged, take, takeUntil} from 'rxjs/operators';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import * as _ from '../../lodash-optimized';
-import { forEach } from '../../lodash-optimized';
+import {forEach} from '../../lodash-optimized';
 import * as moment from 'moment/moment';
-import { NgForm } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../store';
-import { AccountDetailsClass, GenericRequestForGenerateSCD, IForceClear, IStockUnit, SalesEntryClass, SalesTransactionItemClass, VOUCHER_TYPE_LIST, VoucherClass } from '../../models/api-models/Sales';
-import { AccountService } from '../../services/account.service';
-import { INameUniqueName } from '../../models/interfaces/nameUniqueName.interface';
-import { ElementViewContainerRef } from '../../shared/helpers/directives/elementViewChild/element.viewchild.directive';
-import { SalesActions } from '../../actions/sales/sales.action';
-import { AccountResponseV2 } from '../../models/api-models/Account';
-import { CompanyActions } from '../../actions/company.actions';
-import { CompanyResponse, TaxResponse } from '../../models/api-models/Company';
-import { LedgerActions } from '../../actions/ledger/ledger.actions';
-import { BaseResponse } from '../../models/api-models/BaseResponse';
-import { IContentCommon, IInvoiceTax } from '../../models/api-models/Invoice';
-import { SalesService } from '../../services/sales.service';
-import { ToasterService } from '../../services/toaster.service';
-import { ModalDirective } from 'ngx-bootstrap';
-import { contriesWithCodes } from '../../shared/helpers/countryWithCodes';
-import { CompanyService } from '../../services/companyService.service';
-import { IOption } from '../../theme/ng-select/option.interface';
-import { SelectComponent } from '../../theme/ng-select/select.component';
-import { GIDDH_DATE_FORMAT, GIDDH_DATE_FORMAT_UI } from '../../shared/helpers/defaultDateFormat';
-import { IFlattenAccountsResultItem } from 'app/models/interfaces/flattenAccountsResultItem.interface';
+import {NgForm} from '@angular/forms';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../store';
+import {
+  AccountDetailsClass,
+  GenericRequestForGenerateSCD,
+  IForceClear,
+  IStockUnit,
+  SalesEntryClass,
+  SalesTransactionItemClass,
+  VOUCHER_TYPE_LIST,
+  VoucherClass
+} from '../../models/api-models/Sales';
+import {AccountService} from '../../services/account.service';
+import {INameUniqueName} from '../../models/interfaces/nameUniqueName.interface';
+import {ElementViewContainerRef} from '../../shared/helpers/directives/elementViewChild/element.viewchild.directive';
+import {SalesActions} from '../../actions/sales/sales.action';
+import {AccountResponseV2} from '../../models/api-models/Account';
+import {CompanyActions} from '../../actions/company.actions';
+import {CompanyResponse, TaxResponse} from '../../models/api-models/Company';
+import {LedgerActions} from '../../actions/ledger/ledger.actions';
+import {BaseResponse} from '../../models/api-models/BaseResponse';
+import {IContentCommon, IInvoiceTax} from '../../models/api-models/Invoice';
+import {SalesService} from '../../services/sales.service';
+import {ToasterService} from '../../services/toaster.service';
+import {ModalDirective} from 'ngx-bootstrap';
+import {contriesWithCodes} from '../../shared/helpers/countryWithCodes';
+import {CompanyService} from '../../services/companyService.service';
+import {IOption} from '../../theme/ng-select/option.interface';
+import {SelectComponent} from '../../theme/ng-select/select.component';
+import {GIDDH_DATE_FORMAT, GIDDH_DATE_FORMAT_UI} from '../../shared/helpers/defaultDateFormat';
+import {IFlattenAccountsResultItem} from 'app/models/interfaces/flattenAccountsResultItem.interface';
 import * as uuid from 'uuid';
-import { GeneralActions } from 'app/actions/general/general.actions';
-import { setTimeout } from 'timers';
-import { createSelector } from 'reselect';
-import { EMAIL_REGEX_PATTERN } from 'app/shared/helpers/universalValidations';
-import { InvoiceActions } from '../../actions/invoice/invoice.actions';
-import { InvoiceSetting } from '../../models/interfaces/invoice.setting.interface';
-import { Router } from '@angular/router';
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { UploaderOptions, UploadInput, UploadOutput } from 'ngx-uploader';
-import { LEDGER_API } from '../../services/apiurls/ledger.api';
-import { Configuration } from '../../app.constant';
-import { SettingsDiscountActions } from '../../actions/settings/discount/settings.discount.action';
-import { LedgerDiscountClass } from '../../models/api-models/SettingsDiscount';
-import { DiscountListComponent } from '../discount-list/discountList.component';
+import {GeneralActions} from 'app/actions/general/general.actions';
+import {setTimeout} from 'timers';
+import {createSelector} from 'reselect';
+import {EMAIL_REGEX_PATTERN} from 'app/shared/helpers/universalValidations';
+import {InvoiceActions} from '../../actions/invoice/invoice.actions';
+import {InvoiceSetting} from '../../models/interfaces/invoice.setting.interface';
+import {Router} from '@angular/router';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {UploaderOptions, UploadInput, UploadOutput} from 'ngx-uploader';
+import {LEDGER_API} from '../../services/apiurls/ledger.api';
+import {Configuration} from '../../app.constant';
+import {SettingsDiscountActions} from '../../actions/settings/discount/settings.discount.action';
+import {LedgerDiscountClass} from '../../models/api-models/SettingsDiscount';
+import {DiscountListComponent} from '../discount-list/discountList.component';
 
 const STOCK_OPT_FIELDS = ['Qty.', 'Unit', 'Rate'];
 const THEAD_ARR_1 = [
@@ -229,7 +249,6 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
   private prdSerAcListForDeb: IOption[] = [];
   private prdSerAcListForCred: IOption[] = [];
 
-
   constructor(
     private store: Store<AppState>,
     private accountService: AccountService,
@@ -354,7 +373,11 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
 
         if (_.find(item.parentGroups, (o) => o.uniqueName === 'sundrydebtors')) {
           let additional = item.email + item.mobileNo;
-          this.sundryDebtorsAcList.push({label: item.name, value: item.uniqueName, additional: additional ? additional.toString() : ''});
+          this.sundryDebtorsAcList.push({
+            label: item.name,
+            value: item.uniqueName,
+            additional: additional ? additional.toString() : ''
+          });
         }
         if (_.find(item.parentGroups, (o) => o.uniqueName === 'sundrycreditors')) {
           this.sundryCreditorsAcList.push({label: item.name, value: item.uniqueName});

@@ -1,7 +1,7 @@
 import * as _ from '../../lodash-optimized';
-import { isNull, pick } from '../../lodash-optimized';
-import { IInvoiceTax } from './Invoice';
-import { LedgerDiscountClass } from './SettingsDiscount';
+import {isNull, pick} from '../../lodash-optimized';
+import {IInvoiceTax} from './Invoice';
+import {LedgerDiscountClass} from './SettingsDiscount';
 
 /**
  * IMP by dude
@@ -35,6 +35,13 @@ export const VOUCHER_TYPE_LIST: any[] = [
     label: 'Purchase',
     additional: {
       label: 'Purchase'
+    }
+  },
+  {
+    value: 'Receipt Voucher',
+    label: 'Receipt Voucher',
+    additional: {
+      label: 'Receipt Voucher'
     }
   }
 ];
