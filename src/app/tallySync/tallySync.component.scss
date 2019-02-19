@@ -1,0 +1,83 @@
+.tally-header{
+display: flex;
+  align-items: center;
+padding: 15px;
+background-color: #6867670d;
+  strong{
+    font-size: 17px;
+    color: #707070 !important;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+  span{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #707070;
+  }
+}
+.tally-container{
+  padding-top: 30px;
+}
+.Running-color{
+  .round-lite{
+    background-color: #0FA6E9;
+  }
+  color: #0FA6E9;
+}
+.round-lite{
+  display: inline-block!important;
+  height: 13px;
+  width: 13px;
+  border-radius: 100%;
+  margin-left: 30px;
+}
+
+.Done-color{
+  .round-lite{
+    background-color: #55A406;
+  }
+  color: #55A406;
+}
+.tally-main-component{
+  padding: 0px 60px;
+}
+.file-set{
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+}
+.tally-icon{
+  position: absolute;
+  left: -20px;
+}
+tally-label{
+  font-size: 18px;
+}
+.c-progress{
+ ::ng-deep.progress {
+    height: 5px;
+    margin-bottom: unset;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: unset !important;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  }
+  ::ng-deep.progress-bar {
+    float: left;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #BEBEBE !important;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+  }
+}

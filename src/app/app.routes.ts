@@ -73,6 +73,12 @@ export const ROUTES: Routes = [
         canActivate: [NeedsAuthentication, NeedsAuthorization],
         data: {preload: true}
       },
+      {
+        path: 'tally-sync',
+        loadChildren: './tallySync/tallySync.module#TallySyncModule',
+        canActivate: [NeedsAuthentication, NeedsAuthorization],
+        data: {preload: true}
+      },
       {path: 'audit-logs', loadChildren: './audit-logs/audit-logs.module#AuditLogsModule', canActivate: [NeedsAuthorization]},
       {path: 'ledger/:accountUniqueName', loadChildren: './ledger/ledger.module#LedgerModule', canActivate: [NeedsAuthorization], data: {preload: true}},
       {path: 'permissions', loadChildren: './permissions/permission.module#PermissionModule', canActivate: [NeedsAuthorization]},

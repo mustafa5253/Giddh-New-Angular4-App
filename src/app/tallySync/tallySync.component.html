@@ -1,0 +1,956 @@
+
+
+
+<div class="padd15">
+  <button type="button" class="btn btn-primary" (click)="currentButton()">Current</button>
+  <button type="button" class="btn btn-primary" (click)="oldButton()">Old</button>
+</div>
+
+<section *ngIf="currentTab">
+
+<section>
+  <div class="tally-header">
+  <strong>1. Walkover web solutions</strong> <span>Last Import on 2 Nov 2018 @    12:00:00</span>
+    <div class="Running-color"><span class="round-lite"></span> Running</div>
+
+  </div>
+  <div class="tally-container">
+    <div class="tally-main-component">
+
+      <div class="file-set">
+
+        <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+        <div class="col-xs-2">
+          <label class="tally-label text-muted">Groups</label>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="c-progress">
+            <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+            <progressbar [max]="max" [value]="dynamic">
+
+            </progressbar>
+
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+          <small class="text-danger ml-1">50% error occured</small>
+        </div>
+      </div>
+
+    </div>
+    <div class="tally-main-component">
+
+      <div class="file-set">
+
+        <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+        <div class="col-xs-2">
+          <label class="tally-label text-muted">Groups</label>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="c-progress">
+            <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+            <progressbar [max]="max" [value]="dynamic">
+
+            </progressbar>
+
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+          <small class="text-danger ml-1">50% error occured</small>
+        </div>
+      </div>
+
+    </div>
+    <div class="tally-main-component">
+
+      <div class="file-set">
+
+        <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+        <div class="col-xs-2">
+          <label class="tally-label text-muted">Groups</label>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="c-progress">
+            <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+            <progressbar [max]="max" [value]="dynamic">
+
+            </progressbar>
+
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+          <small class="text-danger ml-1">50% error occured</small>
+        </div>
+      </div>
+      <!--sab-folder-->
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+</section>
+
+<section>
+  <div class="tally-header">
+    <strong>2. Test Company Private Limited</strong> <span></span>
+    <div class="Running-color"><span class="round-lite"></span> Running</div>
+
+  </div>
+  <div class="tally-container">
+    <div class="tally-main-component">
+
+      <div class="file-set">
+
+        <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+        <div class="col-xs-2">
+          <label class="tally-label text-muted">Groups</label>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="c-progress">
+            <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+            <progressbar [max]="max" [value]="dynamic">
+
+            </progressbar>
+
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+          <small class="text-danger ml-1">50% error occured</small>
+        </div>
+      </div>
+
+    </div>
+    <div class="tally-main-component">
+
+      <div class="file-set">
+
+        <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+        <div class="col-xs-2">
+          <label class="tally-label text-muted">Groups</label>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="c-progress">
+            <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+            <progressbar [max]="max" [value]="dynamic">
+
+            </progressbar>
+
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+          <small class="text-danger ml-1">50% error occured</small>
+        </div>
+      </div>
+
+    </div>
+    <div class="tally-main-component">
+
+      <div class="file-set">
+
+        <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+        <div class="col-xs-2">
+          <label class="tally-label text-muted">Groups</label>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="c-progress">
+            <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+            <progressbar [max]="max" [value]="dynamic">
+
+            </progressbar>
+
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+          <small class="text-danger ml-1">50% error occured</small>
+        </div>
+      </div>
+      <!--sab-folder-->
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+<section>
+  <div class="tally-header">
+    <strong>3.Test Company Private Limited </strong> <span>Last Import on 2 Nov 2018 @ 12:00:00</span>
+    <div class="Done-color"><span class="round-lite"></span> Done</div>
+
+  </div>
+  <div class="tally-container">
+    <div class="tally-main-component">
+
+      <div class="file-set">
+
+        <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+        <div class="col-xs-2">
+          <label class="tally-label text-muted">Groups</label>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="c-progress">
+            <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+            <progressbar [max]="max" [value]="dynamic">
+
+            </progressbar>
+
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+          <small class="text-danger ml-1">50% error occured</small>
+        </div>
+      </div>
+
+    </div>
+    <div class="tally-main-component">
+
+      <div class="file-set">
+
+        <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+        <div class="col-xs-2">
+          <label class="tally-label text-muted">Groups</label>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="c-progress">
+            <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+            <progressbar [max]="max" [value]="dynamic">
+
+            </progressbar>
+
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+          <small class="text-danger ml-1">50% error occured</small>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="tally-main-component">
+
+      <div class="file-set">
+
+        <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+        <div class="col-xs-2">
+          <label class="tally-label text-muted">Groups</label>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="c-progress">
+            <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+            <progressbar [max]="max" [value]="dynamic">
+
+            </progressbar>
+
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+          <small class="text-danger ml-1">50% error occured</small>
+        </div>
+      </div>
+      <!--sab-folder-->
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+<div class="d-flex" style="padding: 0 30px;margin-top: 75px;">
+  <span>Download Report: </span> <a href=".." class="btn-link btn-secondary" style="margin-left: 15px"> loremipsumdatalorem.jason</a>
+</div>
+</section>
+
+
+<section *ngIf="oldTab">
+  <form class="form-inline input-grp-dateRangePicker pr padd15">
+
+
+
+  <!--<div class="form-group mrR1">-->
+  <!--<label class="d-block">Company Name</label>-->
+  <!--<div class="ng-select-wrap">-->
+  <!--<sh-select name="" [placeholder]="'Select Account'">-->
+  <!--<ng-template #optionTemplate let-option="option">-->
+  <!--<a href="javascript:void(0)" class="list-item" style="border-bottom: 1px solid #ccc;">-->
+  <!--<div class="item">{{ option.label }}</div>-->
+  <!--<div class="item_unq">{{ option.value }}</div>-->
+  <!--</a>-->
+  <!--</ng-template>-->
+  <!--</sh-select>-->
+  <!--</div>-->
+  <!--</div>-->
+    <div class="form-group mrR1">
+
+      <label class="d-block">Date</label>
+      <input type="text" class="form-control" name="invoiceNumber" placeholder="Date">
+    </div>
+    <div class="form-group mrR1">
+
+      <label class="d-block">Taime.</label>
+      <input type="text" class="form-control" name="invoiceNumber" placeholder="Taime">
+    </div>
+
+  <div class="form-group mrR1">
+  <label class="d-block">&nbsp;</label>
+  <button class="btn btn-success btn-sm">GO</button>
+  </div>
+  </form>
+
+  <section>
+    <div class="tally-header">
+      <strong>2 Nov 2018 @ 12:00 am</strong>
+
+    </div>
+    <div class="tally-container">
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+        <div class="tally-main-component">
+
+          <div class="file-set">
+
+            <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+            <div class="col-xs-2">
+              <label class="tally-label text-muted">Groups</label>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="c-progress">
+                <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+                <progressbar [max]="max" [value]="dynamic">
+
+                </progressbar>
+
+              </div>
+            </div>
+
+            <div class="col-xs-3">
+              <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+              <small class="text-danger ml-1">50% error occured</small>
+            </div>
+          </div>
+          <!--sab-folder-->
+
+
+        </div>
+        <div class="tally-main-component">
+
+          <div class="file-set">
+
+            <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+            <div class="col-xs-2">
+              <label class="tally-label text-muted">Groups</label>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="c-progress">
+                <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+                <progressbar [max]="max" [value]="dynamic">
+
+                </progressbar>
+
+              </div>
+            </div>
+
+            <div class="col-xs-3">
+              <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+              <small class="text-danger ml-1">50% error occured</small>
+            </div>
+          </div>
+          <!--sab-folder-->
+
+
+        </div>
+        <div class="tally-main-component">
+
+          <div class="file-set">
+
+            <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+            <div class="col-xs-2">
+              <label class="tally-label text-muted">Groups</label>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="c-progress">
+                <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+                <progressbar [max]="max" [value]="dynamic">
+
+                </progressbar>
+
+              </div>
+            </div>
+
+            <div class="col-xs-3">
+              <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+              <small class="text-danger ml-1">50% error occured</small>
+            </div>
+          </div>
+          <!--sab-folder-->
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="d-flex" style="padding: 0 30px;margin: 55px 0;">
+      <span>Download Report: </span> <a href=".." class="btn-link btn-secondary" style="margin-left: 15px"> loremipsumdatalorem.jason</a>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="tally-header">
+      <strong>2 Nov 2018 @ 02:30 am</strong>
+
+    </div>
+    <div class="tally-container">
+
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+
+      </div>
+      <div class="tally-main-component">
+
+        <div class="file-set">
+
+          <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+          <div class="col-xs-2">
+            <label class="tally-label text-muted">Groups</label>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="c-progress">
+              <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+              <progressbar [max]="max" [value]="dynamic">
+
+              </progressbar>
+
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+            <small class="text-danger ml-1">50% error occured</small>
+          </div>
+        </div>
+        <!--sab-folder-->
+        <div class="tally-main-component">
+
+          <div class="file-set">
+
+            <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+            <div class="col-xs-2">
+              <label class="tally-label text-muted">Groups</label>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="c-progress">
+                <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+                <progressbar [max]="max" [value]="dynamic">
+
+                </progressbar>
+
+              </div>
+            </div>
+
+            <div class="col-xs-3">
+              <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+              <small class="text-danger ml-1">50% error occured</small>
+            </div>
+          </div>
+          <!--sab-folder-->
+
+        </div>
+        <div class="tally-main-component">
+
+          <div class="file-set">
+
+            <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+            <div class="col-xs-2">
+              <label class="tally-label text-muted">Groups</label>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="c-progress">
+                <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+                <progressbar [max]="max" [value]="dynamic">
+
+                </progressbar>
+
+              </div>
+            </div>
+
+            <div class="col-xs-3">
+              <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+              <small class="text-danger ml-1">50% error occured</small>
+            </div>
+          </div>
+          <!--sab-folder-->
+
+        </div>
+        <div class="tally-main-component">
+
+          <div class="file-set">
+
+            <i class="fa fa-folder font-xxlarge text-light-2 tally-icon"></i>
+
+            <div class="col-xs-2">
+              <label class="tally-label text-muted">Groups</label>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="c-progress">
+                <span class="font-xxs text-muted text-nowrap">200 / {{max}}</span>
+                <progressbar [max]="max" [value]="dynamic">
+
+                </progressbar>
+
+              </div>
+            </div>
+
+            <div class="col-xs-3">
+              <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
+              <small class="text-danger ml-1">50% error occured</small>
+            </div>
+          </div>
+          <!--sab-folder-->
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="d-flex" style="padding: 0 30px;margin: 55px 0;">
+      <span>Download Report: </span> <a href=".." class="btn-link btn-secondary" style="margin-left: 15px"> loremipsumdatalorem.jason</a>
+    </div>
+
+  </section>
+
+</section>
