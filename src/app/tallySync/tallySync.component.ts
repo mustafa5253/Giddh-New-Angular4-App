@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from "@angular/core";
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-tally-sync',
@@ -7,25 +7,27 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 })
 
 export class TallySyncComponent implements OnInit {
-  max: number = 200;
-  showWarning: boolean;
-  dynamic: number;
-  type: string;
+  public max: number = 200;
+  public showWarning: boolean;
+  public dynamic: number;
+  public type: string;
 
-  public currentTab: boolean = false;
+  public currentTab: boolean = true;
   public oldTab: boolean = false;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    //
   }
 
-  currentButton() {
+  public currentButton() {
     this.currentTab = !this.currentTab;
     this.oldTab = false;
+    this.currentTab = true;
   }
 
-  oldButton() {
+  public oldButton() {
     this.oldTab = !this.oldTab;
-this.currentTab = false;
+    this.currentTab = false;
   }
 
 }

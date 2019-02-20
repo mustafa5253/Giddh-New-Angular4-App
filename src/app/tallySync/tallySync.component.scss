@@ -81,3 +81,11 @@ tally-label{
     transition: width .6s ease;
   }
 }
+.tab-active{
+  background-color: #ff5f00 !important;
+  color: white !important;
+}
+.flex-aline-end{
+  display: flex;
+  align-items: flex-end;
+}

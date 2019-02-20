@@ -2,8 +2,8 @@
 
 
 <div class="padd15">
-  <button type="button" class="btn btn-primary" (click)="currentButton()">Current</button>
-  <button type="button" class="btn btn-primary" (click)="oldButton()">Old</button>
+  <button type="button" class="btn btn-primary" [ngClass]="{'tab-active': currentTab}" (click)="currentButton()">Current</button>
+  <button type="button" class="btn btn-primary" [ngClass]="{'tab-active': oldTab}" (click)="oldButton()">Old</button>
 </div>
 
 <section *ngIf="currentTab">
@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3 flex-aline-end">
           <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
           <small class="text-danger ml-1">50% error occured</small>
         </div>
@@ -62,7 +62,7 @@
           </div>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3 flex-aline-end">
           <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
           <small class="text-danger ml-1">50% error occured</small>
         </div>
@@ -89,7 +89,7 @@
           </div>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3 flex-aline-end">
           <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
           <small class="text-danger ml-1">50% error occured</small>
         </div>
@@ -115,7 +115,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -144,7 +144,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -173,7 +173,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -217,7 +217,7 @@
           </div>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3 flex-aline-end">
           <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
           <small class="text-danger ml-1">50% error occured</small>
         </div>
@@ -244,7 +244,7 @@
           </div>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3 flex-aline-end">
           <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
           <small class="text-danger ml-1">50% error occured</small>
         </div>
@@ -271,7 +271,7 @@
           </div>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3 flex-aline-end">
           <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
           <small class="text-danger ml-1">50% error occured</small>
         </div>
@@ -297,7 +297,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -325,7 +325,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -353,7 +353,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -395,7 +395,7 @@
           </div>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3 flex-aline-end">
           <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
           <small class="text-danger ml-1">50% error occured</small>
         </div>
@@ -422,7 +422,7 @@
           </div>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3 flex-aline-end">
           <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
           <small class="text-danger ml-1">50% error occured</small>
         </div>
@@ -450,7 +450,7 @@
           </div>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3 flex-aline-end">
           <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
           <small class="text-danger ml-1">50% error occured</small>
         </div>
@@ -476,7 +476,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -504,7 +504,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -532,7 +532,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -550,10 +550,12 @@
 <div class="d-flex" style="padding: 0 30px;margin-top: 75px;">
   <span>Download Report: </span> <a href=".." class="btn-link btn-secondary" style="margin-left: 15px"> loremipsumdatalorem.jason</a>
 </div>
+
 </section>
 
 
 <section *ngIf="oldTab">
+
   <form class="form-inline input-grp-dateRangePicker pr padd15">
 
 
@@ -614,7 +616,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -641,7 +643,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -668,7 +670,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -694,7 +696,7 @@
               </div>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-xs-3 flex-aline-end">
               <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
               <small class="text-danger ml-1">50% error occured</small>
             </div>
@@ -723,7 +725,7 @@
               </div>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-xs-3 flex-aline-end">
               <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
               <small class="text-danger ml-1">50% error occured</small>
             </div>
@@ -752,7 +754,7 @@
               </div>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-xs-3 flex-aline-end">
               <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
               <small class="text-danger ml-1">50% error occured</small>
             </div>
@@ -799,7 +801,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -826,7 +828,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -853,7 +855,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-3 flex-aline-end">
             <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
             <small class="text-danger ml-1">50% error occured</small>
           </div>
@@ -879,7 +881,7 @@
               </div>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-xs-3 flex-aline-end">
               <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
               <small class="text-danger ml-1">50% error occured</small>
             </div>
@@ -907,7 +909,7 @@
               </div>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-xs-3 flex-aline-end">
               <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
               <small class="text-danger ml-1">50% error occured</small>
             </div>
@@ -935,7 +937,7 @@
               </div>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-xs-3 flex-aline-end">
               <small class="text-green"><i class="fa fa-check"></i> 100% Completed</small>
               <small class="text-danger ml-1">50% error occured</small>
             </div>
