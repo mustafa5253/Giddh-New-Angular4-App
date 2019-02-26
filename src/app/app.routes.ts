@@ -1,20 +1,20 @@
 // import { MagicLinkComponent } from './magic-link/magic-link.component';
-import { NeedsAuthorization } from './decorators/needAuthorization';
+import {NeedsAuthorization} from './decorators/needAuthorization';
 // import { SuccessComponent } from './settings/linked-accounts/success.component';
-import { PageComponent } from './page.component';
-import { Routes } from '@angular/router';
-import { NeedsAuthentication } from './decorators/needsAuthentication';
-import { UserAuthenticated } from './decorators/UserAuthenticated';
-import { DummyComponent } from './dummy.component';
-import { NewUserComponent } from './newUser.component';
-import { NewUserAuthGuard } from './decorators/newUserGuard';
-import { SocialLoginCallbackComponent } from './social-login-callback.component';
-import { PublicPageHandlerComponent } from './public-page-handler.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { OnboardingComponent } from './onboarding/onboarding.component';
-import { NotFoundComponent } from './404/404-component';
-import { BrowserSupported } from './decorators/BrowserSupported';
-import { BrowserDetectComponent } from './browser-support/browserDetect.component';
+import {PageComponent} from './page.component';
+import {Routes} from '@angular/router';
+import {NeedsAuthentication} from './decorators/needsAuthentication';
+import {UserAuthenticated} from './decorators/UserAuthenticated';
+import {DummyComponent} from './dummy.component';
+import {NewUserComponent} from './newUser.component';
+import {NewUserAuthGuard} from './decorators/newUserGuard';
+import {SocialLoginCallbackComponent} from './social-login-callback.component';
+import {PublicPageHandlerComponent} from './public-page-handler.component';
+import {WelcomeComponent} from './welcome/welcome.component';
+import {OnboardingComponent} from './onboarding/onboarding.component';
+import {NotFoundComponent} from './404/404-component';
+import {BrowserSupported} from './decorators/BrowserSupported';
+import {BrowserDetectComponent} from './browser-support/browserDetect.component';
 
 export const ROUTES: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -54,6 +54,7 @@ export const ROUTES: Routes = [
   {path: 'company-import-export', redirectTo: 'pages/company-import-export', pathMatch: 'full'},
   {path: 'purchase/create', redirectTo: 'pages/purchase/create'},
   {path: 'new-vs-old-invoices', redirectTo: 'pages/new-vs-old-invoices', pathMatch: 'full'},
+  {path: 'reports', redirectTo: 'pages/reports', pathMatch: 'full'},
   {
     path: 'pages', component: PageComponent, canActivate: [NeedsAuthentication],
     children: [
@@ -67,6 +68,7 @@ export const ROUTES: Routes = [
       {path: 'inventory', loadChildren: './inventory/inventory.module#InventoryModule', canActivate: [NeedsAuthorization], data: {preload: true}},
       {path: 'inventory-in-out', loadChildren: './inventory-in-out/inventory-in-out.module#InventoryInOutModule', canActivate: [NeedsAuthorization], data: {preload: true}},
       {path: 'search', loadChildren: './search/search.module#SearchModule'},
+      {path: 'reports', loadChildren: './reports/reports.module#ReportsModule'},
       {
         path: 'trial-balance-and-profit-loss',
         loadChildren: './tb-pl-bs/tb-pl-bs.module#TBPlBsModule',
