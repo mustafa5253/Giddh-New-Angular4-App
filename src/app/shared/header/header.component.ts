@@ -36,7 +36,9 @@ export const NAVIGATION_ITEM_LIST: IUlist[] = [
   {type: 'MENU', name: 'Dashboard', uniqueName: '/pages/home'},
   {type: 'MENU', name: 'Journal Voucher', uniqueName: '/pages/accounting-voucher'},
   {type: 'MENU', name: 'Sales Invoice', uniqueName: '/pages/sales'},
-  {type: 'MENU', name: 'Template Invoice', uniqueName: '/pages/invoice/preview/sales'},
+  {type: 'MENU', name: 'Invoice', uniqueName: '/pages/invoice/preview/sales'},
+  {type: 'MENU', name: 'Receipt', uniqueName: '/pages/invoice/receipt'},
+  {type: 'MENU', name: 'Debit Credit Note', uniqueName: '/pages/invoice/credit note'},
   {type: 'MENU', name: 'Invoice > Generate', uniqueName: '/pages/invoice/generate/sales'},
   {type: 'MENU', name: 'Invoice > Templates', uniqueName: '/pages/invoice/templates/sales'},
   {type: 'MENU', name: 'Invoice > Settings', uniqueName: '/pages/invoice/settings'},
@@ -70,16 +72,16 @@ export const NAVIGATION_ITEM_LIST: IUlist[] = [
   {type: 'MENU', name: 'New V/S Old Invoices', uniqueName: '/pages/new-vs-old-invoices'},
   {type: 'MENU', name: 'GST', uniqueName: '/pages/gstfiling'},
   // { type: 'MENU', name: 'Aging Report', uniqueName: '/pages/aging-report'},
-  {type: 'MENU', name: 'Customer', uniqueName: '/pages/contact/customer'},
+  {type: 'MENU', name: 'Customer', uniqueName: '/pages/contact/customer', additional: {tab: 'customer', tabIndex: 0}},
   {type: 'MENU', name: 'Vendor', uniqueName: '/pages/contact/vendor'},
-  {type: 'MENU', name: 'Aging Report', uniqueName: '/pages/contact/customer', additional: {tab: 'aging-report', tabIndex: 1}}
+  {type: 'MENU', name: 'Aging Report', uniqueName: '/pages/contact/customer', additional: {tab: 'aging-report', tabIndex: 1}},
 ];
 const HIDE_NAVIGATION_BAR_FOR_LG_ROUTES = ['accounting-voucher', 'inventory',
   'invoice/preview/sales', 'home', 'gstfiling', 'inventory-in-out',
   'ledger'];
 const DEFAULT_MENUS = [
-  {type: 'MENU', name: 'Customer', uniqueName: '/pages/contact/customer'},
-  {type: 'MENU', name: 'Vendor', uniqueName: '/pages/contact/vendor'},
+   {type: 'MENU', name: 'Customer', uniqueName: '/pages/contact/customer'},
+   {type: 'MENU', name: 'Vendor', uniqueName: '/pages/contact/vendor'},
   {type: 'MENU', name: 'GST', uniqueName: '/pages/gstfiling'},
   {type: 'MENU', name: 'Import', uniqueName: '/pages/import'},
   {type: 'MENU', name: 'Inventory', uniqueName: '/pages/inventory'},
@@ -143,6 +145,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
   ];
   public activeFinancialYear: ActiveFinancialYear;
   public datePickerOptions: any = {
+    hideOnEsc: true,
     opens: 'left',
     locale: {
       applyClass: 'btn-green',
@@ -285,6 +288,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
     this.isCompanyProifleUpdate$ = this.store.select(p => p.settings.updateProfileSuccess).pipe(takeUntil(this.destroyed$));
 
     this.companies$ = this.store.select(createSelector([(state: AppState) => state.session.companies], (companies) => {
+      console.log('company: ', companies);
       if (companies && companies.length) {
         return _.orderBy(companies, 'name');
       }
@@ -571,6 +575,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
     this.cdRef.detectChanges();
   }
 
+  public vendorOrCustomer(path: string) {
+    this.selectedPage = path === 'customer' ? 'Customer' : 'Vendor';
+  }
+
   public handleNoResultFoundEmitter(e: any) {
     this.store.dispatch(this._generalActions.getFlattenAccount());
     this.store.dispatch(this._generalActions.getFlattenGroupsReq());
@@ -674,6 +682,9 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
   }
 
   public findListFromDb() {
+    if (!this.activeCompanyForDb) {
+      return;
+    }
     if (!this.activeCompanyForDb.uniqueName) {
       return;
     }
@@ -707,7 +718,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
 
           // entry found check for data
           // slice and sort menu item
-          this.menuItemsFromIndexDB = _.uniqBy(dbResult.aidata.menus, function (o) {
+          this.menuItemsFromIndexDB = _.uniqBy(dbResult.aidata.menus, function(o) {
             // o.name = o.name.toLowerCase();
             if (o.additional) {
               return o.additional.tabIndex;
@@ -716,10 +727,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
             }
           });
 
-          this.menuItemsFromIndexDB = _.sortBy(this.menuItemsFromIndexDB, [function (o) {
+          this.menuItemsFromIndexDB = _.sortBy(this.menuItemsFromIndexDB, [function(o) {
             return o.name;
           }]);
-          this.accountItemsFromIndexDB = _.sortBy(this.accountItemsFromIndexDB, [function (o) {
+          this.accountItemsFromIndexDB = _.sortBy(this.accountItemsFromIndexDB, [function(o) {
             return o.name;
           }]);
 
@@ -958,7 +969,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
   // CMD + K functionality
   @HostListener('document:keydown', ['$event'])
   public handleKeyboardUpEvent(event: KeyboardEvent) {
-    if ((event.metaKey || event.ctrlKey) && event.which === 75 && !this.navigationModalVisible) {
+    if ((event.metaKey || event.ctrlKey) && event.which === 71 && !this.navigationModalVisible) {
       event.preventDefault();
       event.stopPropagation();
       this.showNavigationModal();
@@ -1036,9 +1047,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
 
   public onRight(nodes) {
     if (nodes.currentVertical) {
-      const attrs = nodes.currentVertical.attributes;
-      if (attrs.getNamedItem('dropdownToggle')
-        && (!attrs.getNamedItem('aria-expanded') || attrs.getNamedItem('aria-expanded').nodeValue === 'false')) {
+      if (!this.isDropdownOpen(nodes.currentVertical)) {
         nodes.currentVertical.click();
       }
     }
@@ -1047,12 +1056,16 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
   public onLeft(nodes, navigator) {
     navigator.remove();
     if (navigator.currentVertical) {
-      const attrs = navigator.currentVertical.attributes;
-      if (attrs.getNamedItem('dropdownToggle') && attrs.getNamedItem('switch-company')
-        && attrs.getNamedItem('aria-expanded') && attrs.getNamedItem('aria-expanded').nodeValue === 'true') {
+      if (this.isDropdownOpen(nodes.currentVertical)) {
         navigator.currentVertical.click();
       }
     }
+  }
+
+  public isDropdownOpen(node) {
+    const attrs = node.attributes;
+    return (attrs.getNamedItem('dropdownToggle') && attrs.getNamedItem('switch-company')
+      && attrs.getNamedItem('aria-expanded') && attrs.getNamedItem('aria-expanded').nodeValue === 'true');
   }
 
   public loadScript() {
@@ -1095,8 +1108,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, AfterV
 
   public menuScrollEnd(ev) {
     let offset = $('#other').offset();
-    let exactPosition = offset.top - 181;
-    $('#other_sub_menu').css('top', exactPosition);
+    if (offset) {
+      let exactPosition = offset.top - 181;
+      $('#other_sub_menu').css('top', exactPosition);
+    }
   }
 
   public onCompanyShown(sublist, navigator) {

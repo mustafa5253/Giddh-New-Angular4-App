@@ -1,53 +1,33 @@
 import {combineLatest as observableCombineLatest, Observable, of as observableOf, ReplaySubject} from 'rxjs';
 
-import {distinctUntilChanged, take, takeUntil} from 'rxjs/operators';
-import {
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  HostListener,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
-  ViewChild
-} from '@angular/core';
+import { distinctUntilChanged, take, takeUntil } from 'rxjs/operators';
+import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import * as _ from '../../lodash-optimized';
 import {forEach} from '../../lodash-optimized';
 import * as moment from 'moment/moment';
-import {NgForm} from '@angular/forms';
-import {Store} from '@ngrx/store';
-import {AppState} from '../../store';
-import {
-  AccountDetailsClass,
-  GenericRequestForGenerateSCD,
-  IForceClear,
-  IStockUnit,
-  SalesEntryClass,
-  SalesTransactionItemClass,
-  VOUCHER_TYPE_LIST,
-  VoucherClass
-} from '../../models/api-models/Sales';
-import {AccountService} from '../../services/account.service';
-import {INameUniqueName} from '../../models/interfaces/nameUniqueName.interface';
-import {ElementViewContainerRef} from '../../shared/helpers/directives/elementViewChild/element.viewchild.directive';
-import {SalesActions} from '../../actions/sales/sales.action';
-import {AccountResponseV2} from '../../models/api-models/Account';
-import {CompanyActions} from '../../actions/company.actions';
-import {CompanyResponse, TaxResponse} from '../../models/api-models/Company';
-import {LedgerActions} from '../../actions/ledger/ledger.actions';
-import {BaseResponse} from '../../models/api-models/BaseResponse';
-import {IContentCommon, IInvoiceTax} from '../../models/api-models/Invoice';
-import {SalesService} from '../../services/sales.service';
-import {ToasterService} from '../../services/toaster.service';
-import {ModalDirective} from 'ngx-bootstrap';
-import {contriesWithCodes} from '../../shared/helpers/countryWithCodes';
-import {CompanyService} from '../../services/companyService.service';
-import {IOption} from '../../theme/ng-select/option.interface';
-import {SelectComponent} from '../../theme/ng-select/select.component';
-import {GIDDH_DATE_FORMAT, GIDDH_DATE_FORMAT_UI} from '../../shared/helpers/defaultDateFormat';
-import {IFlattenAccountsResultItem} from 'app/models/interfaces/flattenAccountsResultItem.interface';
+import { NgForm } from '@angular/forms';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../../store';
+import { AccountDetailsClass, GenericRequestForGenerateSCD, IForceClear, IStockUnit, SalesEntryClass, SalesTransactionItemClass, VOUCHER_TYPE_LIST, VoucherClass } from '../../models/api-models/Sales';
+import { AccountService } from '../../services/account.service';
+import { INameUniqueName } from '../../models/interfaces/nameUniqueName.interface';
+import { ElementViewContainerRef } from '../../shared/helpers/directives/elementViewChild/element.viewchild.directive';
+import { SalesActions } from '../../actions/sales/sales.action';
+import { AccountResponseV2 } from '../../models/api-models/Account';
+import { CompanyActions } from '../../actions/company.actions';
+import { CompanyResponse, TaxResponse } from '../../models/api-models/Company';
+import { LedgerActions } from '../../actions/ledger/ledger.actions';
+import { BaseResponse } from '../../models/api-models/BaseResponse';
+import { IContentCommon, IInvoiceTax } from '../../models/api-models/Invoice';
+import { SalesService } from '../../services/sales.service';
+import { ToasterService } from '../../services/toaster.service';
+import { ModalDirective } from 'ngx-bootstrap';
+import { contriesWithCodes } from '../../shared/helpers/countryWithCodes';
+import { CompanyService } from '../../services/companyService.service';
+import { IOption } from '../../theme/ng-select/option.interface';
+import { SelectComponent } from '../../theme/ng-select/select.component';
+import { GIDDH_DATE_FORMAT, GIDDH_DATE_FORMAT_UI } from '../../shared/helpers/defaultDateFormat';
+import { IFlattenAccountsResultItem } from 'app/models/interfaces/flattenAccountsResultItem.interface';
 import * as uuid from 'uuid';
 import {GeneralActions} from 'app/actions/general/general.actions';
 import {setTimeout} from 'timers';
@@ -237,6 +217,9 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
   public selectedFileName: string = '';
   public file: any = null;
   public isSalesInvoice: boolean = true;
+  public checkBoxvalue: boolean ;
+  public hideCheckBox: boolean = false;
+
   // private below
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   private selectedAccountDetails$: Observable<AccountResponseV2>;
@@ -301,9 +284,8 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
     this.destroyed$.next(true);
     this.destroyed$.complete();
   }
-
-  public ngAfterViewInit() {
-    //
+  public ngAfterViewInit(): void {
+   //
   }
 
   public ngOnInit() {
@@ -373,11 +355,7 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
 
         if (_.find(item.parentGroups, (o) => o.uniqueName === 'sundrydebtors')) {
           let additional = item.email + item.mobileNo;
-          this.sundryDebtorsAcList.push({
-            label: item.name,
-            value: item.uniqueName,
-            additional: additional ? additional.toString() : ''
-          });
+          this.sundryDebtorsAcList.push({label: item.name, value: item.uniqueName, additional: additional ? additional.toString() : ''});
         }
         if (_.find(item.parentGroups, (o) => o.uniqueName === 'sundrycreditors')) {
           this.sundryCreditorsAcList.push({label: item.name, value: item.uniqueName});
@@ -825,7 +803,10 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
     }, 0);
   }
 
-  public txnChangeOccurred() {
+  public txnChangeOccurred(disc?: DiscountListComponent) {
+    if (disc) {
+      disc.change();
+    }
     let DISCOUNT: number = 0;
     let TAX: number = 0;
     let AMOUNT: number = 0;
@@ -1036,15 +1017,20 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
   }
 
   public noResultsForCustomer(e: boolean): void {
+    this.updateAccount = false;
     this.typeaheadNoResultsOfCustomer = e;
   }
 
   public onSelectCustomer(item: IOption): void {
     this.typeaheadNoResultsOfCustomer = false;
+    this.hideCheckBox = true;
+    this.checkBoxvalue = true;
+    this.updateAccount = false;
     if (item.value) {
       this.invFormData.voucherDetails.customerName = item.label;
       this.getAccountDetails(item.value);
       this.isCustomerSelected = true;
+      this.updateAccount = true;
       this.invFormData.accountDetails.name = '';
     }
   }
@@ -1260,14 +1246,18 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
   }
 
   public resetCustomerName(event) {
-    // console.log(event);
+    this.hideCheckBox = false;
     if (!event.target.value) {
       this.forceClear$ = observableOf({status: true});
       this.isCustomerSelected = false;
+      this.hideCheckBox = false;
       this.invFormData.accountDetails = new AccountDetailsClass();
       this.invFormData.accountDetails.uniqueName = 'cash';
     }
   }
+  public enterPress(event) {
+    // console.log('event enter..', event);
+  } //
 
   public ngOnChanges(s: SimpleChanges) {
     if (s && s['isPurchaseInvoice'] && s['isPurchaseInvoice'].currentValue) {
@@ -1294,9 +1284,10 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
   }
 
   public calculateAmount(txn, entry) {
-    let total = ((txn.total * 100) + (100 + entry.taxSum)
-      * entry.discountSum);
-    txn.amount = Number((total / (100 + entry.taxSum)).toFixed(2));
+    txn.amount = Number(((Number(txn.total) + entry.discountSum) - entry.taxSum).toFixed(2));
+    // let total = ((txn.total * 100) + (100 + entry.taxSum)
+    //   * entry.discountSum);
+    // txn.amount = Number((total / (100 + entry.taxSum)).toFixed(2));
 
     if (txn.accountUniqueName) {
       if (txn.stockDetails) {
@@ -1384,6 +1375,14 @@ export class SalesInvoiceComponent implements OnInit, OnDestroy, AfterViewInit, 
       this.selectedFileName = this.file.name;
     } else {
       this.selectedFileName = '';
+    }
+  }
+
+  public openToggleAccountAsidePane() {
+    if (this.updateAccount) {
+      this.toggleAccountAsidePane();
+    } else {
+      this.resetCustomerName('');
     }
   }
 }

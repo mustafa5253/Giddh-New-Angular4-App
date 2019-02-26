@@ -48,14 +48,31 @@ export class CommonPaginatedRequest {
 }
 
 export class InvoiceFilterClassForInvoicePreview extends CommonPaginatedRequest {
-  public balanceMoreThan?: boolean;
-  public balanceLessThan?: boolean;
-  public balanceEqual?: boolean;
-  public description?: string;
+  public balanceStatus?: string[];
   public accountUniqueName?: string;
+  public voucherNumber?: string;
+  public proformaNumber?: string;
   public balanceDue?: string;
+  public dueDate?: string;
+  public invoiceDate?: string;
+  public balanceMoreThan?: boolean;
+  public balanceEqual?: boolean;
+  public balanceLessThan?: boolean;
   public entryTotalBy?: string;
-  public invoiceNumber?: string;
+  public invoiceNumber?: string = '';
+  public dueDateBefore?: boolean;
+  public dueDateAfter?: boolean;
+  public dueDateEqual?: boolean;
+  public invoiceDateBefore?: boolean;
+  public invoiceDateAfter?: boolean;
+  public invoiceDateEqual?: boolean;
+  public companyName?: string;
+  public groupUniqueName?: string;
+  public totalMoreThan?: boolean;
+  public totalLessThan?: boolean;
+  public totalEqual?: boolean;
+  public total?: string;
+  public description?: string;
 }
 
 export class InvoiceFilterClass extends CommonPaginatedRequest {
@@ -139,6 +156,7 @@ export interface Template {
   sectionsV2: any[];
   sections: Sections;
   isDefault: boolean;
+  isDefaultForVoucher?: boolean;
   name: string;
 }
 
@@ -382,6 +400,7 @@ export class GenBulkInvoiceFinalObj {
 export class GetInvoiceTemplateDetailsResponse {
   public sections: ISection;
   public isDefault: boolean;
+  public isDefaultForVoucher?: boolean;
   public isSample: boolean;
   public uniqueName: string;
   public name: string;
@@ -393,6 +412,7 @@ export interface InvoiceTemplateDetailsResponse {
   color: string;
   sections: ISection;
   isDefault: boolean;
+  isDefaultForVoucher?: boolean;
   fontSize: string;
   font: string;
   topMargin: number;
@@ -460,6 +480,7 @@ export class CustomTemplateResponse {
   public logoPosition: string;
   public logoSize: string; // design
   public isDefault: boolean;
+  public isDefaultForVoucher: boolean;
   public sections: ISection; // done
   public name: string;
   public copyFrom?: string; // done
