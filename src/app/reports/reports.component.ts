@@ -7,8 +7,9 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class ReportsComponent implements OnInit {
+  public selectedFy: string = null;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     //
   }
 

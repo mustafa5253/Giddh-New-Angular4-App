@@ -5,13 +5,16 @@ import { ReportsComponent } from './reports.component';
 import { ReportsRoutingModule } from './reports-routing.module';
 import { ReportDataComponent } from './components/report-data/report-data.component';
 import { ReportChartComponent } from './components/report-chart/report-chart.component';
+import { ReportContainerComponent } from './components/report-container/report-container.component';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ReportsRoutingModule
+    ReportsRoutingModule,
+    PerfectScrollbarModule
   ],
   exports: [
     ReportsComponent
@@ -19,7 +22,8 @@ import { ReportChartComponent } from './components/report-chart/report-chart.com
   declarations: [
     ReportsComponent,
     ReportDataComponent,
-    ReportChartComponent
+    ReportChartComponent,
+    ReportContainerComponent
   ]
 })
 

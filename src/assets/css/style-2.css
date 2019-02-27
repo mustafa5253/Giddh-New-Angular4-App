@@ -355,7 +355,12 @@ input {
 ul.sub-list {
   margin-top: 5px;
 }
-
+.btn-link-2{
+  color: #2680EB;
+}
+.btn-link-2:hover{
+  color: #2680EB !important;
+}
 .user_dropdown > li > a .glyphicon-menu-right {
   font-size: 10px;
   float: right;

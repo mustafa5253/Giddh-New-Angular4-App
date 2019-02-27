@@ -1,3 +1,7 @@
+<app-report-container-component (selectedFyEvent)="selectedFy = $event"
+                                *ngIf="!selectedFy"
+></app-report-container-component>
 
-<app-report-data-component></app-report-data-component>
+<app-report-data-component *ngIf="selectedFy"></app-report-data-component>
+
 <app-report-chart-component></app-report-chart-component>

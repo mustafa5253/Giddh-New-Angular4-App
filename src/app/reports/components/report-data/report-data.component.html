@@ -1,205 +1,267 @@
+<div class="padd15">
+  <div class="d-flex" style="align-items: center">
 
-  <div class="padd15">
-    <div class="mb-2"><a href="..." class="btn-link-2">Report</a>><a href=".." class=""> Sales Register</a></div>
+    <div class="click-dropdwon">
+      <img src="assets/icon/menu.svg" class="mr-2 cp" (click)="toggleModal()"/>
+      <ul *ngIf="isModalOpen">
+        <li><span class="mr-1"><input type="checkbox"/></span> Voucher Type</li>
+        <li><span class="mr-1"><input type="checkbox"/></span>Voucher No.</li>
+        <li><span class="mr-1"><input type="checkbox"/></span>Product/Service</li>
+        <li><span class="mr-1"><input type="checkbox"/></span>Qty-Rate</li>
+        <li><span class="mr-1"><input type="checkbox"/></span>Tax</li>
+        <li><span class="mr-1"><input type="checkbox"/></span>Round Off</li>
+        <li><span class="mr-1"><input type="checkbox"/></span>Freight</li>
 
-    <div class="d-flex">
-      <div class="flex-fill d-flex">
-        <div class="mr-2"><input type="text" class="form-control" placeholder="Financial Year"/></div>
-        <div class="mr-2"><input type="text" class="form-control" placeholder="FY Mar17-Apr18"/></div>
-        <div class="d-flex" style="align-items: center">
-          <span class="mr-2 d-flex" style="align-items: center"><input type="radio" class="radio_theme"/> Cash Basis</span>
-          <span class="d-flex" style="align-items: center"><input type="radio" class="radio_theme"/> Accrual Basis</span></div>
-      </div>
-      <div>
-        <button class="btn btn-blue " style="margin-right: 0 !important;">+ New Invoice</button>
-      </div>
 
+      </ul>
     </div>
+
+    <div class="flex-fill d-flex" style="align-items: center">
+      <a href="..." class="btn-link-2">Report</a>><a href=".." class="btn-link-2"> Sales Register </a> > <span>  August 2017</span>
+
+      <a class="cp ml-2" style="color: #FF5F00;" data-toggle="tooltip" data-placement="top"
+         title="Expand All">
+        <img src="{{imgPath}}expand.png" style="margin-top: 3px !important;">
+        <!--<span class="glyphicon glyphicon-fullscreen" style="top: 11px !important"></span>-->
+      </a>
+      <!--<a class="cp ml-2" style="color: #FF5F00;" data-toggle="tooltip" data-placement="top"-->
+      <!--title="Collapse All">-->
+      <!--<img src="{{imgPath}}collapse.png" style="margin-top: 3px !important;">-->
+      <!--&lt;!&ndash;<span class="glyphicon glyphicon-fullscreen" style="top: 11px !important"></span>&ndash;&gt;-->
+      <!--</a>-->
+    </div>
+
+    <button class="btn btn-blue">+ New Invoice</button>
+
   </div>
+</div>
+<div class="padd15 mt-1">
+  <div style="overflow: auto">
 
-
-<section class="row mt-1 mr0">
-  <div class="col-sm-12">
-    <table class="table basic table-bordered">
-      <thead>
-      <tr>
-        <th width="50%">Particular</th>
-        <th>
-          <div class="d-flex">
-            <div class="flex-fill">Sales</div>
-            <div class="icon-pointer">
-              <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
-              <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+      <table class="basic table-bordered" style="width:150% !important;">
+        <thead>
+        <tr>
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Date</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
             </div>
-          </div>
-        </th>
-        <th>
-          <div class="d-flex">
-            <div class="flex-fill">Return</div>
-            <div class="icon-pointer">
-              <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
-              <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+          </th>
+
+          <th class="td_in_searchBox" #searchReceiptContainer>
+
+            <div [hidden]="showAccountSearch">
+              <span> Account</span>
+              <i class="icon-search"></i>
             </div>
-          </div>
-        </th>
-        <th>
-          <div class="d-flex">
-            <div class="flex-fill">Net Sales</div>
-            <div class="icon-pointer">
-              <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
-              <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+
+            <div class="input-container" [hidden]="!showAccountSearch">
+              <input type="text" placeholder="Search Receipt no." class="w100"/>
+              <!--<i class="icon-search" (click)="showReceiptSearch =false"></i>-->
             </div>
-          </div>
-        </th>
-        <th>
-          <div class="d-flex">
-            <div class="flex-fill">Cumulative</div>
-            <div class="icon-pointer">
-              <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
-              <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+          </th>
+
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Voucher Type</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
             </div>
-          </div>
-        </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
+          </th>
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Voucher Type</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
+            </div>
+          </th>
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Voucher Type</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
+            </div>
+          </th>
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Voucher Type</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
+            </div>
+          </th>
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Voucher Type</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
+            </div>
+          </th>
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Voucher Type</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
+            </div>
+          </th>
 
-      <!--Quarter tr-->
-      <tr class="Quarter-tr">
-        <td class="text-right"><strong><a class="btn-link-2 cp" href="...">Quarter 1</a></strong></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      </tbody>
-      <tbody>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
 
-      <!--Quarter tr-->
-      <tr class="Quarter-tr">
-        <td class="text-right"><strong><a class="btn-link-2 cp" href="...">Quarter 2</a></strong></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      </tbody>
-      <tbody>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
+          <th class="td_in_searchBox" #searchReceiptContainer>
 
-      <!--Quarter tr-->
-      <tr class="Quarter-tr">
-        <td class="text-right"><strong><a class="btn-link-2 cp" href="...">Quarter 3</a></strong></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      </tbody>
-      <tbody>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      <tr>
-        <td><a class="btn-link-2 cp" href="...">April 2017</a></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
+            <div [hidden]="showNumberSearch">
+              <span> Number.</span>
+              <i class="icon-search"></i>
+            </div>
 
-      <!--Quarter tr-->
-      <tr class="Quarter-tr">
-        <td class="text-right"><strong><a class="btn-link-2 cp" href="...">Quarter 4</a></strong></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      </tbody>
+            <div class="input-container" [hidden]="!showNumberSearch">
+              <input type="text" placeholder="Search Receipt no." class="w100"/>
+              <!--<i class="icon-search" (click)="showReceiptSearch =false"></i>-->
+            </div>
+          </th>
 
-      <tfoot>
-      <tr class="tfooter-total">
-        <td class="text-right"><strong><a class="btn-link-2 cp footer-a" href="...">FY Mar17-Apr18</a></strong></td>
-        <td>2,300</td>
-        <td>-</td>
-        <td>2,300</td>
-        <td>2,300 Cr.</td>
-      </tr>
-      </tfoot>
-    </table>
+          <th class="td_in_searchBox" #searchReceiptContainer>
+
+            <div [hidden]="showProductServiceSearch">
+              <span> Product/Service</span>
+              <i class="icon-search"></i>
+            </div>
+
+            <div class="input-container" [hidden]="!showProductServiceSearch">
+              <input type="text" placeholder="Search Receipt no." class="w100"/>
+              <!--<i class="icon-search" (click)="showReceiptSearch =false"></i>-->
+            </div>
+          </th>
+
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Qty.</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
+            </div>
+          </th>
+
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Rate</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
+            </div>
+          </th>
+
+          <th>
+            <div class="d-flex">
+              <div class="flex-fill">Round Off</div>
+              <div class="icon-pointer">
+                <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+              </div>
+            </div>
+          </th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td>1 Aug 17</td>
+          <td>Cash</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td><a class="btn-link-2 cp">20190202-1</a></td>
+          <td>Chair</td>
+          <td>52</td>
+          <td>1,600</td>
+          <td>0.68</td>
+        </tr>
+        <!--full data tr-->
+        <tr class="fullDataTr">
+          <td>1 Aug 17</td>
+          <td>Cash</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td>Sales</td>
+          <td><a class="btn-link-2 cp">20190202-1</a></td>
+          <td>
+            <div>Chair</div>
+            <div>Table</div>
+            <div>Desk</div>
+            <div>Chair small</div>
+            <div>Chair</div>
+          </td>
+          <td>
+            <div>52</div>
+            <div>52</div>
+            <div>16</div>
+            <div>44</div>
+            <div>44</div>
+          </td>
+          <td>
+            <div>1646</div>
+            <div>264</div>
+            <div>73134</div>
+            <div>646</div>
+            <div>54955</div>
+          </td>
+          <td>
+            <div>1646</div>
+            <div>264</div>
+            <div>73134</div>
+            <div>646</div>
+            <div>54955</div>
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+
+
   </div>
-</section>
+   <div class="mt-3">
+     <label>August 2017 Total Sales</label>
+     <div class="total-footer">
+       <div>
+         <span class="text-light-2">Tax</span>
+         <h2>1000/-</h2>
+       </div>
+       <div>
+         <span class="text-light-2">Discount</span>
+         <h2>30,000/-</h2>
+       </div>
+       <div>
+         <span class="text-light-2">Round Off</span>
+         <h2>20000/-</h2>
+       </div>
+       <div>
+         <span class="text-light-2">Amount</span>
+         <h2>5000/-</h2>
+       </div>
+     </div>
+   </div>
+</div>
+
+

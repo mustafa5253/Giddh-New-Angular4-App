@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-report-chart-component',
@@ -9,5 +9,6 @@ import { Component, OnInit } from '@angular/core';
 export class ReportChartComponent implements OnInit {
 
   public ngOnInit(): void {
+    //
   }
 }

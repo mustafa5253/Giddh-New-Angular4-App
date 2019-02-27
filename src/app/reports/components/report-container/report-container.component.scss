@@ -83,62 +83,20 @@
   margin-top: 0;
 }
 
-.fullDataTr{
-  td{
-    vertical-align: sub !important;
-    div{
-      padding: 6px 0px;
-    }
-  }
+
+.Quarter-tr {
+  background-color: #F0F0F1;
 }
 
-.td_in_searchBox span{
-  flex: 1 1 auto;
-  padding-left: 14px !important;
-}
+.tfooter-total {
+  background-color: #E3E3E3;
 
+  td {
+    font-weight: bold;
 
-.click-dropdwon ul{
-  list-style: none;
-  top: 30px;
-  position: absolute;
-  background-color: white;
-  width: 190px;
-  box-shadow: 0px 4px 7px #bfbfbf;
-  border-radius: 3px;
-  z-index: 100;
-  border: 1px solid gainsboro;
-}
-.click-dropdwon{
-  position: relative;
-}
+    .footer-a {
+      font-size: 16px;
 
-.click-dropdwon ul li{
-  padding: 3px 6px;
-  margin-bottom: 4px;
-  cursor: pointer;
-}
-.click-dropdwon ul li:hover{
-  background-color: #d9d9d970;
-}
-.click-dropdwon ul li:hover a{
-  color: orangered;
-}
-.total-footer{
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 35px;
-  div{
-    padding: 0 60px;
-    h2{
-      color: #0f0f27;
-      font-size: 37px;
-    }
-    span{
-      margin-bottom: 7px;
-      font-size: 20px;
     }
   }
 }
