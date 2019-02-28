@@ -93,10 +93,16 @@
 
   td {
     font-weight: bold;
+    padding: 8px 14px;
 
     .footer-a {
       font-size: 16px;
 
     }
+  }
+}
+.report-table{
+  tr:hover a{
+    color: orangered !important;
   }
 }
