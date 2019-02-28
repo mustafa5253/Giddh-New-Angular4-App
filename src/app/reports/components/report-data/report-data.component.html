@@ -1,23 +1,43 @@
-<div class="padd15">
+<div class="padd15" style="padding-bottom: 0 !important;">
   <div class="d-flex" style="align-items: center">
 
     <div class="click-dropdwon">
       <img src="assets/icon/menu.svg" class="mr-2 cp" (click)="toggleModal()"/>
       <ul *ngIf="isModalOpen">
-        <li><span class="mr-1"><input type="checkbox"/></span> Voucher Type</li>
-        <li><span class="mr-1"><input type="checkbox"/></span>Voucher No.</li>
-        <li><span class="mr-1"><input type="checkbox"/></span>Product/Service</li>
-        <li><span class="mr-1"><input type="checkbox"/></span>Qty-Rate</li>
-        <li><span class="mr-1"><input type="checkbox"/></span>Tax</li>
-        <li><span class="mr-1"><input type="checkbox"/></span>Round Off</li>
-        <li><span class="mr-1"><input type="checkbox"/></span>Freight</li>
+        <li><span class="mr-1"><input type="checkbox"/></span><a href="..">Voucher Type   </a></li>
+        <li><span class="mr-1"><input type="checkbox"/></span><a href="..">Voucher No.    </a></li>
+        <li><span class="mr-1"><input type="checkbox"/></span><a href="..">Product/Service</a></li>
+        <li><span class="mr-1"><input type="checkbox"/></span><a href="..">Qty-Rate       </a></li>
+        <li><span class="mr-1"><input type="checkbox"/></span><a href="..">Tax            </a></li>
+        <li><span class="mr-1"><input type="checkbox"/></span><a href="..">Round Off      </a></li>
+        <li><span class="mr-1"><input type="checkbox"/></span><a href="..">Freight        </a></li>
 
 
       </ul>
     </div>
 
     <div class="flex-fill d-flex" style="align-items: center">
-      <a href="..." class="btn-link-2">Report</a>><a href=".." class="btn-link-2"> Sales Register </a> > <span>  August 2017</span>
+      <a href="..." class="btn-link-2 mr">Report</a>><a href=".." class="btn-link-2 mr"> Sales Register </a> >
+<div class="click-dropdwon mr">
+  <span class="cp" (click)="monthdropdown()">August 2017  <span class="caret"></span></span>
+  <ul *ngIf="ismonthdropdownOpen">
+    <li><a href="...">January 2017</a></li>
+    <li><a href="...">February 2017</a></li>
+    <li><a href="...">March 2017</a></li>
+    <li><a href="...">April 2017</a></li>
+    <li><a href="...">May 2017</a></li>
+    <li><a href="...">Jun 2017</a></li>
+    <li><a href="...">July 2017</a></li>
+    <li><a href="...">August 2017</a></li>
+    <li><a href="...">September 2017</a></li>
+    <li><a href="...">October 2017</a></li>
+    <li><a href="...">November 2017</a></li>
+    <li><a href="...">December 2017</a></li>
+  </ul>
+</div>
+
+
+
 
       <a class="cp ml-2" style="color: #FF5F00;" data-toggle="tooltip" data-placement="top"
          title="Expand All">
@@ -31,12 +51,12 @@
       <!--</a>-->
     </div>
 
-    <button class="btn btn-blue">+ New Invoice</button>
+    <button class="btn btn-blue" style="margin-right: 0 !important;">+ New Invoice</button>
 
   </div>
 </div>
-<div class="padd15 mt-1">
-  <div style="overflow: auto">
+<div class="padd15">
+  <div style="overflow: auto;padding-bottom:15px ">
 
       <table class="basic table-bordered" style="width:150% !important;">
         <thead>
@@ -236,12 +256,22 @@
           </td>
         </tr>
         </tbody>
+        <tbody><tr><td colspan="13" style="border-left: none"></td></tr></tbody>
+        <tfoot class="total-tfooter">
+        <tr>
+          <td colspan="11">
+            Total
+          </td>
+          <td>5521</td>
+          <td>12542</td>
+        </tr>
+        </tfoot>
 
       </table>
 
 
   </div>
-   <div class="mt-3">
+   <div class="m-t-50">
      <label>August 2017 Total Sales</label>
      <div class="total-footer">
        <div>

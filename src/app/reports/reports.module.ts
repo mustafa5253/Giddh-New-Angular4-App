@@ -7,6 +7,7 @@ import { ReportDataComponent } from './components/report-data/report-data.compon
 import { ReportChartComponent } from './components/report-chart/report-chart.component';
 import { ReportContainerComponent } from './components/report-container/report-container.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
     FormsModule,
     ReactiveFormsModule,
     ReportsRoutingModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    BsDropdownModule
   ],
   exports: [
     ReportsComponent

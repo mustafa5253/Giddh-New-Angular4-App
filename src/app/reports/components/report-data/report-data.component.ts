@@ -12,6 +12,7 @@ export class ReportDataComponent implements OnInit {
   public showProductServiceSearch = false;
   public imgPath: string;
   public isModalOpen: boolean = false;
+  public ismonthdropdownOpen: boolean = false;
 
   public ngOnInit(): void {
     this.imgPath = isElectron ? 'assets/icon/' : AppUrl + APP_FOLDER + 'assets/icon/';
@@ -19,5 +20,8 @@ export class ReportDataComponent implements OnInit {
 
   public toggleModal() {
     this.isModalOpen = !this.isModalOpen;
+  }
+  public monthdropdown() {
+    this.ismonthdropdownOpen = !this.ismonthdropdownOpen;
   }
 }
