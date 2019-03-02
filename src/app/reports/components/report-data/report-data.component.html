@@ -18,7 +18,8 @@
 
     <div class="flex-fill d-flex" style="align-items: center">
       <a href="..." class="btn-link-2 mr">Report</a>><a href=".." class="btn-link-2 mr"> Sales Register </a> >
-<div class="click-dropdwon mr">
+
+      <div class="click-dropdwon mr">
   <span class="cp" (click)="monthdropdown()">August 2017  <span class="caret"></span></span>
   <ul *ngIf="ismonthdropdownOpen">
     <li><a href="...">January 2017</a></li>
@@ -36,11 +37,7 @@
   </ul>
 </div>
 
-
-
-
-      <a class="cp ml-2" style="color: #FF5F00;" data-toggle="tooltip" data-placement="top"
-         title="Expand All">
+      <a class="cp ml-2" style="color: #FF5F00;" data-toggle="tooltip" data-placement="top" title="Expand All">
         <img src="{{imgPath}}expand.png" style="margin-top: 3px !important;">
         <!--<span class="glyphicon glyphicon-fullscreen" style="top: 11px !important"></span>-->
       </a>
@@ -55,9 +52,9 @@
 
   </div>
 </div>
+
 <div class="padd15">
   <div style="overflow: auto;padding-bottom:15px ">
-
       <table class="basic table-bordered" style="width:150% !important;">
         <thead>
         <tr>
@@ -256,7 +253,9 @@
           </td>
         </tr>
         </tbody>
+
         <tbody><tr><td colspan="13" style="border-left: none"></td></tr></tbody>
+
         <tfoot class="total-tfooter">
         <tr>
           <td colspan="11">
@@ -268,8 +267,6 @@
         </tfoot>
 
       </table>
-
-
   </div>
    <div class="m-t-50">
      <label>August 2017 Total Sales</label>
@@ -293,5 +290,3 @@
      </div>
    </div>
 </div>
-
-
