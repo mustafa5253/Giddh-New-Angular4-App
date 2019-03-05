@@ -1,22 +1,25 @@
 import { take, takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/roots';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { InventoryAction } from '../actions/inventory/inventory.actions';
 import { StateDetailsRequest } from '../models/api-models/Company';
 import { CompanyActions } from '../actions/company.actions';
 import { Observable, ReplaySubject } from 'rxjs';
 import { StockGroupResponse, StockDetailResponse } from '../models/api-models/Inventory';
 import { InvoiceActions } from 'app/actions/invoice/invoice.actions';
+import { TabsetComponent } from 'ngx-bootstrap';
 
 @Component({
   selector: 'inventory',
-  templateUrl: './inventory.component.html'
+  templateUrl: './inventory.component.html',
+  styleUrls:['./inventory.component.scss']
 })
 export class InventoryComponent implements OnInit, OnDestroy {
   public isBranchVisible$: Observable<boolean>;
   public activeStock$: Observable<StockDetailResponse>;
   public activeGroup$: Observable<StockGroupResponse>;
+  @ViewChild('inventoryStaticTabs') public inventoryStaticTabs: TabsetComponent;
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 

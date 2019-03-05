@@ -11,19 +11,34 @@ import { SidebarAction } from '../../../actions/inventory/sidebar.actions';
 @Component({
   selector: 'stock-list',
   styles: [`
-    .active {
+    .stock-items .active {
+      background-color:#FFF3EC;
+    }
+    .stock-items .active a .span{
       color: #d35f29 !important;
+    }
+    .span{
+      color: black;
+      font-size: 14px;
+    }
+    .in-list{
+      display: flex;
+      align-items: center;
     }
   `],
   template: `
   <ul class="list-unstyled stock-items clearfix" [hidden]="!Groups.isOpen" >
-    <li class="clearfix" *ngFor="let item of Groups.stocks" >
-      <a (click)="OpenStock(item, $event)" class="pull-left">
-        <div [ngClass]="{'active':  (activeStockUniqueName$ | async) === item.uniqueName}">{{item.name}}</div>
-      </a>
-      <button class="btn btn-link btn-xs pull-right" (click)="goToManageStock(item)" *ngIf="(activeStockUniqueName$ | async) === item.uniqueName">
-        Edit
-      </button>
+    <li class="clearfix " *ngFor="let item of Groups.stocks" style="padding: 0px" >
+     <div class="in-list" [ngClass]="{'active':  (activeStockUniqueName$ | async) === item.uniqueName}">
+       <a (click)="OpenStock(item, $event)" style="display: flex;align-items: center;flex: 1;color: black;justify-content: space-between" class="d-flex">
+         <span class="span">{{item.name}}</span>
+         <span class="d-block" style="margin-right: 12px;" [hidden]="(activeStockUniqueName$ | async) === item.uniqueName">
+           1452</span>
+       </a>
+       <button class="btn btn-link btn-xs pull-right" (click)="goToManageStock(item)" *ngIf="(activeStockUniqueName$ | async) === item.uniqueName">
+         <i class="fa fa-pencil" style="color: #FF5F00 !important;"> </i>
+       </button>
+     </div>
     </li>
   </ul>
   `

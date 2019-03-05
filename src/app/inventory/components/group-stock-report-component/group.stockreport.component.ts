@@ -43,27 +43,7 @@ const VALUE_FILTER = [
 @Component({
   selector: 'invetory-group-stock-report',  // <home></home>
   templateUrl: './group.stockreport.component.html',
-  styles: [`
-    .bdrT {
-      border-color: #ccc;
-    }
-
-    :host ::ng-deep .fb__1-container {
-      justify-content: flex-start;
-    }
-
-    :host ::ng-deep .fb__1-container .form-group {
-      margin-right: 10px;
-      margin-bottom: 0;
-    }
-
-    :host ::ng-deep .fb__1-container .date-range-picker {
-      min-width: 150px;
-    }
-    a:hover {
-      text-decoration: none;
-    }
-  `]
+  styleUrls: ['./group.stockreport.component.scss']
 })
 export class InventoryGroupStockReportComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('dateRangePickerCmp') public dateRangePickerCmp: ElementRef;

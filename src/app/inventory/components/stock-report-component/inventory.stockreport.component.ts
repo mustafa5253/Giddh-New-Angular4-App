@@ -21,11 +21,7 @@ import { InventoryAction } from '../../../actions/inventory/inventory.actions';
 @Component({
   selector: 'invetory-stock-report',  // <home></home>
   templateUrl: './inventory.stockreport.component.html',
-  styles: [`
-    .bdrT {
-      border-color: #ccc;
-    }
-  `]
+  styleUrls: ['./inventory.stockreport.component.scss']
 })
 export class InventoryStockReportComponent implements OnInit, OnDestroy, AfterViewInit {
   public today: Date = new Date();

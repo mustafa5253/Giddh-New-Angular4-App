@@ -6,75 +6,185 @@
     </button>
   </div>
    -->
+  <div class="d-flex mb-2">
+    <div style="width: 230px;margin-right: 15px;"><input type="text" placeholder="Warehouse" class="form-control"/></div>
+    <div style="width: 230px;"><input type="text" placeholder="Purchases & Sales" class="form-control"/></div>
+  </div>
     <form class="fb__1-container mrB1" name="groupReportForm" novalidate (ngSubmit)="filterFormData()">
-        <div class="form-group">
-            <!-- <label class="d-block">From - To</label> -->
-            <input type="text" #dateRangePickerCmp name="daterangeInput" daterangepicker [options]="datePickerOptions" class="form-control" (applyDaterangepicker)="selectedDate($event)" />
-        </div>
-        <div class="form-group">
-            <!-- <label class="d-block">Stocks</label> -->
-            <sh-select [(ngModel)]="GroupStockReportRequest.stockUniqueName" name="stockName" [options]="stockList$ | async" [placeholder]="'Type to search stock'" [multiple]="false" [ItemHeight]="33"></sh-select>
-        </div>
-        <div class="form-group">
-            <!-- <label class="d-block">Others</label> -->
-            <sh-select [(ngModel)]="GroupStockReportRequest.entity" name="entity" [options]="entityFilterDropDown$ | async" [placeholder]="'-- Others --'" [multiple]="false" [ItemHeight]="33"></sh-select>
-        </div>
-        <div class="form-group" [hidden]="!GroupStockReportRequest.entity">
-            <!-- <label class="d-block">&nbsp;</label> -->
-            <sh-select [(ngModel)]="GroupStockReportRequest.value" name="value" [options]="valueFilterDropDown$ | async" [placeholder]="'-- select --'" [multiple]="false" [ItemHeight]="33"></sh-select>
-        </div>
-        <div class="form-group" [hidden]="!GroupStockReportRequest.entity">
-            <!-- <label class="d-block">&nbsp;</label> -->
-            <sh-select [(ngModel)]="GroupStockReportRequest.condition" name="condition" [options]="comparisonFilterDropDown$ | async" [placeholder]="'-- select --'" [multiple]="false" [ItemHeight]="33"></sh-select>
-        </div>
-        <div class="form-group" [hidden]="!GroupStockReportRequest.entity">
-            <!-- <label class="d-block">&nbsp;</label> -->
-            <input [(ngModel)]="GroupStockReportRequest.number" name="number" type="text" class="form-control" />
-        </div>
-        <div class="form-group">
-            <!-- <label class="d-block">&nbsp;</label> -->
-            <button type="submit" class="btn btn-success">Go</button>
-        </div>
+        <!--<div class="form-group">-->
+            <!--&lt;!&ndash; <label class="d-block">From - To</label> &ndash;&gt;-->
+            <!--<input type="text" #dateRangePickerCmp name="daterangeInput" daterangepicker [options]="datePickerOptions" class="form-control" (applyDaterangepicker)="selectedDate($event)" />-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--&lt;!&ndash; <label class="d-block">Stocks</label> &ndash;&gt;-->
+            <!--<sh-select [(ngModel)]="GroupStockReportRequest.stockUniqueName" name="stockName" [options]="stockList$ | async" [placeholder]="'Type to search stock'" [multiple]="false" [ItemHeight]="33"></sh-select>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--&lt;!&ndash; <label class="d-block">Others</label> &ndash;&gt;-->
+            <!--<sh-select [(ngModel)]="GroupStockReportRequest.entity" name="entity" [options]="entityFilterDropDown$ | async" [placeholder]="'&#45;&#45; Others &#45;&#45;'" [multiple]="false" [ItemHeight]="33"></sh-select>-->
+        <!--</div>-->
+        <!--<div class="form-group" [hidden]="!GroupStockReportRequest.entity">-->
+            <!--&lt;!&ndash; <label class="d-block">&nbsp;</label> &ndash;&gt;-->
+            <!--<sh-select [(ngModel)]="GroupStockReportRequest.value" name="value" [options]="valueFilterDropDown$ | async" [placeholder]="'&#45;&#45; select &#45;&#45;'" [multiple]="false" [ItemHeight]="33"></sh-select>-->
+        <!--</div>-->
+        <!--<div class="form-group" [hidden]="!GroupStockReportRequest.entity">-->
+            <!--&lt;!&ndash; <label class="d-block">&nbsp;</label> &ndash;&gt;-->
+            <!--<sh-select [(ngModel)]="GroupStockReportRequest.condition" name="condition" [options]="comparisonFilterDropDown$ | async" [placeholder]="'&#45;&#45; select &#45;&#45;'" [multiple]="false" [ItemHeight]="33"></sh-select>-->
+        <!--</div>-->
+        <!--<div class="form-group" [hidden]="!GroupStockReportRequest.entity">-->
+            <!--&lt;!&ndash; <label class="d-block">&nbsp;</label> &ndash;&gt;-->
+            <!--<input [(ngModel)]="GroupStockReportRequest.number" name="number" type="text" class="form-control" />-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--&lt;!&ndash; <label class="d-block">&nbsp;</label> &ndash;&gt;-->
+            <!--<button type="submit" class="btn btn-success">Go</button>-->
+        <!--</div>-->
 
+      <div class="d-flex" style="justify-content: space-between;width: 100%">
+        <div class="d-flex" style="align-items: center">
+          <h2 style="font-size: 20px;font-weight: bold">Furniture (Group)</h2>
+          <a href="" class="btn-link-2 ml-2">Advance Search</a>
+          <i class="fa fa-refresh ml-1 cp"></i>
+        </div>
+        <div class="clearfix">
+          <a class="btn-link-2 cp mr-1" (click)="DownloadGroupReports()"> <i class="icon-download"></i> Download</a>
+          <button class="btn btn-blue">New Transfer</button>
+          <button class="btn btn-blue">Create New</button>
+        </div>
+      </div>
     </form>
-    <div class="clearfix">
-        <a class="btn-link pull-right mrB cp " (click)="DownloadGroupReports()"> <i class="icon-download"></i> Download</a>
-    </div>
+
     <section>
         <table class="table basic">
             <thead>
                 <tr>
-                    <th rowspan="2" colspan="2" class="bdrR">Stock name</th>
-                    <th class="text-center bdrR bdrB" colspan="2">Opening stock</th>
-                    <th class="text-center bdrR bdrB" colspan="2">Inwards</th>
-                    <th class="text-center bdrR bdrB" colspan="2">Outwards</th>
-                    <th class="text-center bdrB" colspan="2">Closing Stock</th>
+                    <th colspan="2" class="bdrR" width="20%" style="padding: 0 !important;">
+                      <div class="d-flex" style="justify-content: center">
+                      <input type="text" #dateRangePickerCmp name="daterangeInput" daterangepicker [options]="datePickerOptions" class="form-control stock-input" (applyDaterangepicker)="selectedDate($event)" />
+                      </div>
+                    </th>
+                    <th class="text-center bdrR bdrB" width="20%" colspan="2">Opening stock</th>
+                    <th class="text-center bdrR bdrB" width="20%" colspan="2">Inwards</th>
+                    <th class="text-center bdrR bdrB" width="20%" colspan="2">Outwards</th>
+                    <th class="text-center bdrB" width="20%" colspan="2">Closing Stock</th>
                 </tr>
                 <tr class="bdrT">
-                    <th>Quantity</th>
-                    <th class="text-right bdrR">Value</th>
-                    <th>Quantity</th>
-                    <th class="text-right bdrR">Value</th>
-                    <th>Quantity</th>
-                    <th class="text-right bdrR">Value</th>
-                    <th>Quantity</th>
-                    <th class="text-right">Value</th>
+                    <th colspan="2" class="bdrR td_in_searchBox">
+                      <div>
+                        <span> Product Name</span>
+                        <i class="icon-search"></i>
+                      </div>
+
+                      <div class="input-container" [hidden]="!showParticularSearch">
+                        <input type="text" placeholder="Search Particular" class="w100"/>
+                        <!--<i class="icon-search" (click)="showParticularSearch = false;"></i>-->
+                      </div>
+                    </th>
+                    <th>
+                      <div class="d-flex">
+                        <div class="flex-fill"> Quantity</div>
+                        <div class="icon-pointer">
+                          <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                          <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="bdrR">
+                      <div class="d-flex">
+                        <div class="flex-fill">Value</div>
+                        <div class="icon-pointer">
+                          <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                          <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+                        </div>
+                      </div>
+                      </th>
+                    <th>
+                      <div class="d-flex">
+                        <div class="flex-fill"> Quantity</div>
+                        <div class="icon-pointer">
+                          <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                          <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="bdrR">
+                      <div class="d-flex">
+                        <div class="flex-fill">Value</div>
+                        <div class="icon-pointer">
+                          <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                          <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+                        </div>
+                      </div>
+                      </th>
+                    <th> <div class="d-flex">
+                      <div class="flex-fill"> Quantity</div>
+                      <div class="icon-pointer">
+                        <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                        <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+                      </div>
+                    </div></th>
+                    <th class="bdrR">
+                      <div class="d-flex">
+                        <div class="flex-fill">Value</div>
+                        <div class="icon-pointer">
+                          <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                          <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+                        </div>
+                      </div>
+                    </th>
+                    <th>
+                      <div class="d-flex">
+                        <div class="flex-fill"> Quantity</div>
+                        <div class="icon-pointer">
+                          <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                          <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+                        </div>
+                      </div>
+                    </th>
+                    <th>
+                      <div class="d-flex">
+                        <div class="flex-fill">Value</div>
+                        <div class="icon-pointer">
+                          <div class="glyphicon glyphicon-triangle-top text-light-2 d-block font-xxs"></div>
+                          <div class="glyphicon glyphicon-triangle-bottom text-light-2 d-block font-xxs"></div>
+                        </div>
+                      </div>
+                    </th>
                 </tr>
             </thead>
             <tbody *ngIf="(groupStockReport$ | async)?.count > 0">
                 <tr *ngFor="let txn of (groupStockReport$ | async)?.stockReport">
                     <ng-container *ngIf="txn.openingBalance || txn.inwards || txn.outwards || txn.closingBalance">
-                        <td class="bdrR" colspan="2">{{txn.stockName}}</td>
-                        <td>{{txn.openingBalance?.quantity}} {{txn.openingBalance?.stockUnit}}</td>
-                        <td class="text-right bdrR">{{txn.openingBalance?.amount}}</td>
-                        <td>{{txn.inwards?.quantity}} {{txn.inwards?.stockUnit}}</td>
-                        <td class="text-right bdrR">{{txn.inwards?.amount}}</td>
-                        <td>{{txn.outwards?.quantity}} {{txn.outwards?.stockUnit}}</td>
-                        <td class="text-right bdrR">{{txn.outwards?.amount}}</td>
-                        <td>{{txn.closingBalance?.quantity}} {{txn.closingBalance?.stockUnit}}</td>
-                        <td class="text-right">{{txn.closingBalance?.amount}}</td>
+                        <td class="bdrB bdrR" colspan="2">{{txn.stockName}}</td>
+                        <td class="bdrB">{{txn.openingBalance?.quantity}} {{txn.openingBalance?.stockUnit}}</td>
+                        <td class="bdrB text-right bdrR">{{txn.openingBalance?.amount}}</td>
+                        <td class="bdrB">{{txn.inwards?.quantity}} {{txn.inwards?.stockUnit}}</td>
+                        <td class="bdrB text-right bdrR">{{txn.inwards?.amount}}</td>
+                        <td class="bdrB">{{txn.outwards?.quantity}} {{txn.outwards?.stockUnit}}</td>
+                        <td class="bdrB text-right bdrR">{{txn.outwards?.amount}}</td>
+                        <td class="bdrB">{{txn.closingBalance?.quantity}} {{txn.closingBalance?.stockUnit}}</td>
+                        <td class="bdrB text-right">{{txn.closingBalance?.amount}}</td>
                     </ng-container>
                 </tr>
+                <tr><td clospan="12"></td></tr>
+                <!--totle-tr-->
+            <tr class="footer-tr">
+              <td colspan="2" >
+                <strong>Total</strong>
+              </td>
+              <td colspan="2" class="text-right">
+                1346
+              </td>
+              <td colspan="2" class="text-right">
+                3543
+              </td>
+              <td colspan="2" class="text-right">
+                4654
+              </td>
+              <td colspan="2" class="text-right">
+                4687
+              </td>
+            </tr>
             </tbody>
             <tbody *ngIf="(groupStockReport$ | async)?.count < 1">
                 <tr>
@@ -105,4 +215,17 @@
             </tfoot>
         </table>
     </section>
+  <section class="mt-5">
+    <span>Furniture Value:</span>
+    <div class="total-footer">
+      <div class="footitem">
+        <h2>Opening Value</h2>
+        <h1>6464646</h1>
+      </div>
+      <div class="footitem">
+        <h2 style="color:#FF5F00">Closing Value</h2>
+        <h1>6464646</h1>
+      </div>
+    </div>
+  </section>
 </section>
